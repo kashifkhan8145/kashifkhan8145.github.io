@@ -47,34 +47,50 @@
 </head>
 <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-display">
   <!-- Header / Nav -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="text-xl font-semibold tracking-tight"> Kashif&nbsp;Khan </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#about" class="hover:text-brand-600">About</a>
-        <a href="#projects" class="hover:text-brand-600">Projects</a>
-        <a href="#publications" class="hover:text-brand-600">Publications</a>
-        <a href="#experience" class="hover:text-brand-600">Experience</a>
-        <a href="#education" class="hover:text-brand-600">Education</a>
-        <a href="#skills" class="hover:text-brand-600">Skills</a>
-        <a href="#awards" class="hover:text-brand-600">Awards</a>
-        <a href="#courses" class="hover:text-brand-600">Courses</a>
-        <a href="#languages" class="hover:text-brand-600">Languages</a>
-        <a href="#certs" class="hover:text-brand-600">Certificates</a>
-        <a href="#contact" class="hover:text-brand-600">Contact</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a id="cvBtn" href="/Kashif_Khan_CV.pdf" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900" download>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
-          CV
-        </a>
-        <button id="themeToggle" class="p-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900" aria-label="Toggle dark mode">
-          <svg id="sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a1 1 0 011 1v1a1 1 0 11-2 0V4a1 1 0 011-1zM10 14a4 4 0 100-8 4 4 0 000 8zM4 9a1 1 0 100 2H3a1 1 0 100-2h1zm13 0a1 1 0 100 2h-1a1 1 0 100-2h1zM5.636 5.636a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zm8.314 8.314a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM5.636 14.364a1 1 0 010 1.414l-.707.707A1 1 0 013.515 15.07l.707-.707a1 1 0 011.414 0zm8.314-8.314a1 1 0 010-1.414l.707-.707A1 1 0 0115.9 4.93l-.707.707a1 1 0 01-1.414 0z"/></svg>
-          <svg id="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9 9 0 1111 2.248a7 7 0 1010.752 12.754z"/></svg>
-        </button>
-      </div>
+<header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-6">
+    <!-- Brand -->
+    <a href="#home"
+       class="text-xl font-semibold tracking-tight whitespace-nowrap shrink-0 mr-8">
+      Kashif&nbsp;Khan
+    </a>
+
+    <!-- Nav (grows, sits between brand and buttons) -->
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#about" class="hover:text-brand-600">About</a>
+      <a href="#projects" class="hover:text-brand-600">Projects</a>
+      <a href="#publications" class="hover:text-brand-600">Publications</a>
+      <a href="#experience" class="hover:text-brand-600">Experience</a>
+      <a href="#education" class="hover:text-brand-600">Education</a>
+      <a href="#skills" class="hover:text-brand-600">Skills</a>
+      <a href="#awards" class="hover:text-brand-600">Awards</a>
+      <a href="#courses" class="hover:text-brand-600">Courses</a>
+      <a href="#languages" class="hover:text-brand-600">Languages</a>
+      <a href="#certs" class="hover:text-brand-600">Certificates</a>
+      <a href="#contact" class="hover:text-brand-600">Contact</a>
+    </nav>
+
+    <!-- Push buttons to far right -->
+    <div class="flex items-center gap-2 ml-auto">
+      <a id="cvBtn" href="/Kashif_Khan_CV.pdf"
+         class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900"
+         download>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+        </svg>
+        CV
+      </a>
+      <button id="themeToggle"
+              class="p-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900"
+              aria-label="Toggle dark mode">
+        <svg id="sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a1 1 0 011 1v1a1 1 0 11-2 0V4a1 1 0 011-1zM10 14a4 4 0 100-8 4 4 0 000 8zM4 9a1 1 0 100 2H3a1 1 0 100-2h1zm13 0a1 1 0 100 2h-1a1 1 0 100-2h1zM5.636 5.636a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zm8.314 8.314a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM5.636 14.364a1 1 0 010 1.414l-.707.707A1 1 0 013.515 15.07l.707-.707a1 1 0 011.414 0zm8.314-8.314a1 1 0 010-1.414l.707-.707A1 1 0 0115.9 4.93l-.707.707a1 1 0 01-1.414 0z"/></svg>
+        <svg id="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9 9 0 1111 2.248a7 7 0 1010.752 12.754z"/></svg>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Hero -->
   <section id="home" class="relative">
