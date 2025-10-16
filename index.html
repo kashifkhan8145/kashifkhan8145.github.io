@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kashif Khan — Machine Learning × RF</title>
+  <meta name="description" content="Kashif Khan — research portfolio in Machine Learning & RF/Microwave Engineering." />
+  <meta property="og:title" content="Kashif Khan — Machine Learning × RF" />
+  <meta property="og:description" content="Research portfolio: GaN HEMT modelling, microstrip filter design, and ML optimization." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/kashif.jpg" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Tailwind (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial'],
+            serif: ['EB Garamond', 'ui-serif', 'Georgia', 'Cambria'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+              800: '#155e75',
+              900: '#164e63'
+            }
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Pretty selection color */
+    ::selection { background: rgba(6,182,212,.25); }
+    /* Smooth anchor offset for sticky header */
+    :target { scroll-margin-top: 96px; }
+  </style>
+
+  <!-- JSON-LD (optional, helps with SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kashif Khan",
+    "jobTitle": "Research Assistant",
+    "affiliation": {"@type": "Organization", "name": "Nazarbayev University"},
+    "email": "mailto:kashif.khan@nu.edu.kz",
+    "url": "https://kashifkhan8145.github.io",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=e0CeRSUAAAAJ",
+      "https://www.linkedin.com/in/kashifkhan8145",
+      "https://github.com/kashifkhan8145"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-display">
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="text-xl font-semibold tracking-tight">Kashif Khan</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="hover:text-brand-600">About</a>
+        <a href="#publications" class="hover:text-brand-600">Publications</a>
+        <a href="#experience" class="hover:text-brand-600">Experience</a>
+        <a href="#teaching" class="hover:text-brand-600">Teaching</a>
+        <a href="#awards" class="hover:text-brand-600">Awards</a>
+        <a href="#contact" class="hover:text-brand-600">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a id="cvBtn" href="/Kashif_Khan_CV.pdf" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900" download>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
+          CV
+        </a>
+        <button id="themeToggle" class="p-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900" aria-label="Toggle dark mode">
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a1 1 0 011 1v1a1 1 0 11-2 0V4a1 1 0 011-1zM10 14a4 4 0 100-8 4 4 0 000 8zM4 9a1 1 0 100 2H3a1 1 0 100-2h1zm13 0a1 1 0 100 2h-1a1 1 0 100-2h1zM5.636 5.636a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zm8.314 8.314a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM5.636 14.364a1 1 0 010 1.414l-.707.707A1 1 0 013.515 15.07l.707-.707a1 1 0 011.414 0zm8.314-8.314a1 1 0 010-1.414l.707-.707A1 1 0 0115.9 4.93l-.707.707a1 1 0 01-1.414 0z"/></svg>
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9 9 0 1111 2.248a7 7 0 1010.752 12.754z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative">
+    <div class="max-w-5xl mx-auto px-4 pt-14 pb-10 grid md:grid-cols-[160px,1fr] gap-6 items-center">
+      <div class="flex md:block justify-center">
+        <!-- Replace /kashif.jpg after you upload -->
+        <img src="/kashif.jpg" alt="Kashif Khan" class="w-32 h-32 rounded-2xl object-cover ring-1 ring-slate-200 dark:ring-slate-800" onerror="this.style.display='none'" />
+      </div>
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight">Kashif Khan</h1>
+        <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-2xl">Research Assistant at Nazarbayev University. I work at the intersection of <span class="font-semibold text-slate-800 dark:text-slate-200">Machine Learning</span> and <span class="font-semibold text-slate-800 dark:text-slate-200">RF/Microwave Engineering</span> — GaN HEMT modelling, microstrip filter design, and AI-driven optimization.</p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="mailto:kashif.khan@nu.edu.kz" class="px-3 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
+          <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" class="px-3 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/kashifkhan8145" class="px-3 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">LinkedIn</a>
+          <a href="https://github.com/kashifkhan8145" class="px-3 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">GitHub</a>
+          <a href="/Kashif_Khan_CV.pdf" class="px-3 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900" download>CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-8 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <div>
+        <h2 class="text-xl font-semibold tracking-tight">Research Interests</h2>
+      </div>
+      <div class="md:col-span-2 text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p>
+          Trustworthy and efficient ML for real-world signal processing: surrogate modelling for RF devices (GaN HEMTs), microstrip filter synthesis, metaheuristic optimization, and hardware-aware learning. I value reproducibility, interpretability, and deployment-readiness.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" class="py-8 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl font-semibold tracking-tight mb-4">Selected Publications</h2>
+      <ol class="space-y-4 list-decimal list-inside">
+        <li>
+          <span class="font-medium">GWO-ANN Based Approach for High-Frequency Microstrip Filter Design and Optimization</span>. <em>Procedia Computer Science</em>, accepted. 
+          <span class="inline-flex gap-2 ml-2">
+            <!-- Optional buttons per item: -->
+            <!-- <a href="#" class="text-brand-600 hover:underline">PDF</a> -->
+            <!-- <a href="#" class="text-brand-600 hover:underline">Code</a> -->
+          </span>
+        </li>
+        <li>
+          <span class="font-medium">Hybrid Approach for Performance Optimization of GaN HEMT Small-Signal Models</span>. <em>International Journal of Numerical Modelling</em>, under review.
+        </li>
+        <li>
+          <span class="font-medium">ML-Based GaN HEMT Small-Signal Modelling</span>. <em>IEEE ICM 2024</em>.
+        </li>
+      </ol>
+      <a href="#" class="inline-block mt-4 text-brand-600 hover:underline">Full publications list →</a>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-8 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl font-semibold tracking-tight mb-4">Experience</h2>
+      <div class="grid gap-4">
+        <article class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Research Assistant — Nazarbayev University</h3>
+            <span class="text-sm text-slate-500">Nov 2021 – Present</span>
+          </div>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>High-frequency microstrip filter design (ADS) accelerated with ML & evolutionary optimization.</li>
+            <li>Behavioral modelling of GaN HEMTs (ANN, RBNN, GRNN, XGBoost, GPR) up to 120 GHz.</li>
+            <li>Fabrication & measurement for real-world validation; emphasis on reproducibility.</li>
+          </ul>
+        </article>
+        <article class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Instructor — Invest In Kids, Astana</h3>
+            <span class="text-sm text-slate-500">Feb 2023 – Present</span>
+          </div>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>Python, ML fundamentals, project-based learning; mentoring for real-world AI tasks.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching -->
+  <section id="teaching" class="py-8 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl font-semibold tracking-tight mb-4">Teaching</h2>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+        <li>Machine Learning for Beginners — curriculum design & delivery.</li>
+        <li>Hands-on Python for Data Science — notebooks & mini-projects.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards" class="py-8 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl font-semibold tracking-tight mb-4">Awards</h2>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+        <li>Best Paper — ISNCC 2023, Doha, Qatar.</li>
+        <li>Best Paper — IMPACT 2022, India.</li>
+        <li>Abay Kunanbayev (NU) & Diya Pakistan (UET) — fully funded scholarships.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-10 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
+      <div>
+        <h2 class="text-xl font-semibold tracking-tight">Contact</h2>
+        <p class="text-sm text-slate-500 mt-1">Open to PhD positions in ML × EE.</p>
+      </div>
+      <div class="md:col-span-2">
+        <div class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
+          <p>Email: <a href="mailto:kashif.khan@nu.edu.kz" class="text-brand-600 hover:underline">kashif.khan@nu.edu.kz</a></p>
+          <p>Scholar: <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" class="text-brand-600 hover:underline">Google Scholar</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/kashifkhan8145" class="text-brand-600 hover:underline">linkedin.com/in/kashifkhan8145</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <p>© <span id="year"></span> Kashif Khan</p>
+      <div class="flex items-center gap-4">
+        <a href="/Kashif_Khan_CV.pdf" class="hover:text-brand-600">CV</a>
+        <a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io" class="hover:text-brand-600">Source</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dark mode toggle with persistence
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const sun = document.getElementById('sun');
+    const moon = document.getElementById('moon');
+
+    function setTheme(dark) {
+      if (dark) { root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+      else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+    }
+    // load
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(stored ? stored === 'dark' : prefersDark);
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = root.classList.contains('dark');
+      setTheme(!isDark);
+      localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+    });
+  </script>
+
+  <!-- EDITING TIPS (remove after customizing)
+    1) Replace kashifkhan8145 in links.
+    2) Upload /Kashif_Khan_CV.pdf to the repo root; the CV buttons will work.
+    3) Upload /kashif.jpg (optional) for your headshot.
+    4) Update content in each section; keep it concise.
+  -->
+</body>
+</html>
