@@ -11,6 +11,7 @@
   <meta property="og:image" content="/Kashif_Khan.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
 
+  <!-- Tailwind (no build step) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -48,14 +49,16 @@
     }
   </script>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     ::selection { background: rgba(59,130,246,.25); }
     :target { scroll-margin-top: 96px; }
-    .gradient-hero{background: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.25), transparent 60%), radial-gradient(1200px 600px at 90% -20%, rgba(6,182,212,.25), transparent 60%);}   
+    .gradient-hero{background: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.25), transparent 60%), radial-gradient(1200px 600px at 90% -20%, rgba(6,182,212,.25), transparent 60%);}    
   </style>
 
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,6 +77,7 @@
   </script>
 </head>
 <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-display">
+  <!-- Header / Nav -->
   <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="text-xl font-semibold tracking-tight">Kashif Khan</a>
@@ -82,8 +86,11 @@
         <a href="#publications" class="hover:text-brand-600">Publications</a>
         <a href="#experience" class="hover:text-brand-600">Experience</a>
         <a href="#education" class="hover:text-brand-600">Education</a>
-        <a href="#awards" class="hover:text-brand-600">Awards</a>
         <a href="#skills" class="hover:text-brand-600">Skills</a>
+        <a href="#awards" class="hover:text-brand-600">Awards</a>
+        <a href="#courses" class="hover:text-brand-600">Courses</a>
+        <a href="#languages" class="hover:text-brand-600">Languages</a>
+        <a href="#certs" class="hover:text-brand-600">Certificates</a>
         <a href="#contact" class="hover:text-brand-600">Contact</a>
       </nav>
       <div class="flex items-center gap-2">
@@ -99,194 +106,237 @@
     </div>
   </header>
 
+  <!-- Hero (Blue/Teal gradient) -->
   <section id="home" class="relative">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-50 via-white to-accent-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 gradient-hero"></div>
-    <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-[200px,1fr] gap-8 items-center">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-100 via-white to-accent-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900"></div>
+    <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-[220px,1fr] gap-8 items-center">
       <div class="flex md:block justify-center">
-        <img src="/Kashif_Khan.jpg" alt="Kashif Khan" class="w-40 h-40 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800" onerror="this.style.display='none'" />
+        <img src="/Kashif_Khan.jpg" alt="Kashif Khan" class="w-44 h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800" />
       </div>
       <div>
         <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider px-2 py-1 rounded-full bg-brand-100 text-brand-700 dark:bg-slate-800 dark:text-brand-300">Machine Learning × RF/Microwave</span>
         <h1 class="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">Kashif Khan</h1>
-        <p class="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl">Research Assistant at Nazarbayev University specializing in the application of modern machine learning techniques to solve complex challenges in RF and microwave engineering. My work focuses on creating efficient, robust, and deployable AI-driven solutions.</p>
+        <p class="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl">Research Assistant at Nazarbayev University. I work on GaN HEMT modelling, microstrip filter design, and AI‑driven optimization with a focus on reproducibility and deployment‑readiness.</p>
         <div class="mt-5 flex flex-wrap gap-3">
           <a href="mailto:kashif.khan@nu.edu.kz" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
-          <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
-          <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">LinkedIn</a>
-          <a href="https://github.com/kashifkhan8145" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/kashifkhan8145" class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">LinkedIn</a>
+          <a href="https://github.com/kashifkhan8145" class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">GitHub</a>
           <a href="/Kashif_Khan_CV.pdf" class="px-4 py-2 rounded-xl bg-accent-500 text-white hover:bg-accent-600" download>CV (PDF)</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="py-16 bg-slate-50 dark:bg-slate-900 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- About (Soft Indigo) -->
+  <section id="about" class="py-12 bg-indigo-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">About</h2>
       </div>
-      <div class="md:col-span-2 text-slate-700 dark:text-slate-300 leading-relaxed space-y-4">
+      <div class="md:col-span-2 text-slate-700 dark:text-slate-300 leading-relaxed">
         <p>
-          With a strong background in machine learning (ML) and signal modeling, my primary research interest lies in applying modern ML techniques to solve real-world problems with measurable impact. I aim to develop intelligent systems that can operate reliably in practical environments.
-        </p>
-        <p>
-          My goal is to design ML solutions that are not only accurate but also efficient, interpretable, and applicable to real-time decision-making scenarios, particularly within the domain of high-frequency electronics.
+          With a background in ML and signal modeling, I apply modern ML techniques to solve real‑world RF problems with measurable impact. My work spans surrogate modelling for GaN HEMTs, microstrip filter synthesis, and metaheuristic optimization (GWO, PSO, WOA, ALO, BHO, RSA, SHO). I value interpretability, careful evaluation, and robust deployment.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="publications" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- Publications (White) -->
+  <section id="publications" class="py-12 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-end justify-between gap-4">
         <h2 class="text-2xl font-semibold tracking-tight">Selected Publications</h2>
-        <input id="pubFilter" type="search" placeholder="Filter by keyword..." class="w-56 rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 px-3 py-2 text-sm" />
+        <input id="pubFilter" type="search" placeholder="Filter…" class="w-56 rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 px-3 py-2 text-sm" />
       </div>
-      <div id="pubList" class="mt-6 space-y-6">
-        <div class="pub">
-          <p class="text-sm text-brand-600 dark:text-brand-400">Journal Article (Accepted)</p>
-          <h3 class="font-medium text-lg mt-1">GWO-ANN Based Approach for High-Frequency Microstrip Filter Design and Optimization</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, M. Hashmi. <em>Procedia Computer Science</em> (Elsevier, Scopus Indexed).</p>
-        </div>
-        <div class="pub">
-          <p class="text-sm text-brand-600 dark:text-brand-400">Journal Article (Under Review)</p>
-          <h3 class="font-medium text-lg mt-1">Hybrid Approach for Performance Optimization of Gallium Nitride High Electron Mobility Transistors Small-Signal Behavioral Models</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>International Journal of Numerical Modelling: Electronic Networks, Devices and Fields</em> (Wiley, SCIE Indexed).</p>
-        </div>
-        <div class="pub">
-          <p class="text-sm text-brand-600 dark:text-brand-400">Conference Paper</p>
-          <h3 class="font-medium text-lg mt-1">Development and Assessment of ML Based GaN HEMTs Small-Signal Modelling Techniques</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>36th IEEE International Conference on Microelectronics (ICM)</em>, Doha, Qatar, Dec. 2024.</p>
-        </div>
-        <div class="pub">
-          <p class="text-sm text-brand-600 dark:text-brand-400">Conference Paper</p>
-          <h3 class="font-medium text-lg mt-1">Development and Evaluation of ANN, RBNNs, and GRNNs Based Small-Signal Behavioral Models for GaN HEMT Up to 40 GHz</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE Midwest Symposium on Circuits and Systems (MWSCAS)</em>, Springfield, USA, Aug. 2024.</p>
-        </div>
-         <div class="pub">
-          <p class="text-sm text-brand-600 dark:text-brand-400">Conference Paper</p>
-          <h3 class="font-medium text-lg mt-1">On Temperature-Dependent Small-Signal Behavioral Modelling of GaN HEMT Using GWO-PSO and WOA</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE Int’l Symposium on Networks, Computers and Communications (ISNCC)</em>, Doha, Qatar, Oct. 2023.</p>
-        </div>
-      </div>
-      <p class="mt-6"><a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" class="inline-block text-brand-600 hover:underline">Full publications list on Google Scholar →</a></p>
+      <ol id="pubList" class="mt-4 space-y-4 list-decimal list-inside">
+        <li class="pub"><span class="font-medium">GWO‑ANN Based Approach for High‑Frequency Microstrip Filter Design and Optimization</span>. <em>Procedia Computer Science</em> (accepted; Elsevier, Scopus indexed, CPCI).</li>
+        <li class="pub"><span class="font-medium">Hybrid Approach for Performance Optimization of GaN HEMT Small‑Signal Behavioral Models</span>. <em>International Journal of Numerical Modelling: Electronic Networks, Devices and Fields</em> (under review; Wiley, SCIE & Scopus).</li>
+        <li class="pub"><span class="font-medium">Development and Assessment of ML‑Based GaN HEMTs Small‑Signal Modelling Techniques</span>. <em>IEEE ICM</em>, Doha, 2024.</li>
+        <li class="pub"><span class="font-medium">ANN, RBNNs, and GRNNs Based Small‑Signal Behavioral Models for GaN HEMT up to 40 GHz</span>. <em>IEEE MWSCAS</em>, USA, 2024.</li>
+        <li class="pub"><span class="font-medium">ANN, ACOR‑ANN, ALO‑ANN for GaN‑on‑Si HEMT</span>. <em>IEEE ICECS</em>, Türkiye, 2023.</li>
+        <li class="pub"><span class="font-medium">Temperature‑Dependent Small‑Signal Modelling of GaN HEMT Using GWO‑PSO and WOA</span>. <em>IEEE ISNCC</em>, Qatar, 2023.</li>
+        <li class="pub"><span class="font-medium">Temperature‑Dependent I‑V Models for Microwave Transistor</span>. <em>IEEE IMPACT</em>, India, 2022.</li>
+      </ol>
+      <p class="mt-4 text-sm text-slate-500">Add PDF/Code links later by wrapping titles in <code>&lt;a&gt;</code> tags and pointing to your uploaded files.</p>
     </div>
   </section>
 
-  <section id="experience" class="py-16 bg-slate-50 dark:bg-slate-900 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- Experience (Blue-Gray) -->
+  <section id="experience" class="py-12 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl font-semibold tracking-tight mb-6">Experience</h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white dark:bg-slate-950/50">
+        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <div class="flex items-center justify-between">
-            <h3 class="font-semibold">Research Assistant</h3>
+            <h3 class="font-semibold">Research Assistant — Nazarbayev University (RF Research Team)</h3>
             <span class="text-sm text-slate-500">Nov 2021 – Present</span>
           </div>
-          <p class="text-sm text-slate-500 mt-1">RF Research Team, Nazarbayev University</p>
-          <ul class="mt-3 list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
-            <li><strong>High Frequency Filter Design:</strong> Integrated ML models with Advanced Design System (ADS) to accelerate EM design, reducing design time while maintaining high accuracy. Validated results through fabrication and real-world measurement.</li>
-            <li><strong>Behavioral Modeling of RF Devices:</strong> Investigated ML algorithms (ANN, RBNN, XGBoost, GPR) for modeling GaN HEMTs up to 120 GHz, applying global optimization to fine-tune model hyperparameters.</li>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>High‑frequency microstrip filter design (ADS) accelerated with ML & evolutionary optimization.</li>
+            <li>Behavioral modelling of GaN HEMTs (ANN, RBNN, GRNN, XGBoost, GPR) up to 120 GHz.</li>
+            <li>Fabrication & measurement for real‑world validation; emphasis on reproducibility.</li>
+            <li>Co‑authored multiple IEEE publications; contributed to multi‑institutional projects.</li>
           </ul>
         </article>
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white dark:bg-slate-950/50">
+        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <div class="flex items-center justify-between">
-            <h3 class="font-semibold">Instructor</h3>
+            <h3 class="font-semibold">Instructor — Invest In Kids, Astana</h3>
             <span class="text-sm text-slate-500">Feb 2023 – Present</span>
           </div>
-          <p class="text-sm text-slate-500 mt-1">Invest In Kids, Astana, Kazakhstan</p>
-          <ul class="mt-3 list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
-            <li>Developed and delivered comprehensive lessons on Python, ML fundamentals, and advanced AI models.</li>
-            <li>Mentored students through hands-on, real-world projects, fostering practical skills in programming, data analysis, and creative problem-solving.</li>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>Designed & delivered Python/ML curricula; mentored project‑based learning.</li>
+            <li>Built interactive teaching materials; simplified complex topics for beginners.</li>
+            <li>Encouraged collaboration through coding challenges and group projects.</li>
+          </ul>
+        </article>
+        <article class="md:col-span-2 p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">PASBAN Human Rights, Protection & Welfare Organization — General Secretary</h3>
+            <span class="text-sm text-slate-500">2016 – 2021</span>
+          </div>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>Coordinated meetings and operations; ensured compliance and stakeholder communication.</li>
+            <li>Maintained records and administrative workflows improving organizational efficiency.</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="education" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- Education (Teal Tint) -->
+  <section id="education" class="py-12 bg-cyan-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl font-semibold tracking-tight mb-6">Education</h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/70 dark:bg-slate-900/50">
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">MSc, Electrical & Computer Engineering</h3>
-          <p class="text-sm text-slate-500">Nazarbayev University, Astana — 2021–2023</p>
+          <p class="text-sm text-slate-500">Nazarbayev University, Astana — Aug 2021 – Jun 2023</p>
           <ul class="mt-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
-            <li>Thesis: Development of Machine Learning-Based Modeling Techniques for Advanced RF Devices.</li>
-            <li>CGPA: 3.21/4.0.</li>
+            <li>Thesis: Development of ML‑Based Modelling Techniques for Advanced RF Devices.</li>
+            <li>CGPA: 3.21 / 4.0.</li>
           </ul>
         </div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/70 dark:bg-slate-900/50">
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">BSc, Electrical Engineering</h3>
-          <p class="text-sm text-slate-500">University of Engineering & Technology, Peshawar — 2015–2019</p>
+          <p class="text-sm text-slate-500">UET Peshawar — Aug 2015 – Aug 2019</p>
           <ul class="mt-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
             <li>Thesis: Road Power Generation using Freewheel Mechanism.</li>
-            <li>CGPA: 3.36/4.0.</li>
+            <li>CGPA: 3.36 / 4.0.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="awards" class="py-16 bg-slate-50 dark:bg-slate-900 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- Skills (Lavender) -->
+  <section id="skills" class="py-12 bg-violet-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">Technical Strengths</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Programming</h3>
+          <p class="text-slate-700 dark:text-slate-300 mt-2">C, C++, Python (scikit‑learn, TensorFlow/Keras, Matplotlib, Pandas, NumPy)</p>
+        </div>
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Simulation & Modelling</h3>
+          <p class="text-slate-700 dark:text-slate-300 mt-2">MATLAB/Python (system‑level), ADS (EM/circuit), Mathematica, Anaconda (Spyder, Jupyter)</p>
+        </div>
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <h3 class="font-semibold">ML & Optimization</h3>
+          <p class="text-slate-700 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, GBM/LightGBM/XGBoost; GWO, BHO, RSA, SHO, ALO, WOA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards (Warm Gray) -->
+  <section id="awards" class="py-12 bg-amber-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl font-semibold tracking-tight mb-6">Awards & Achievements</h2>
-      <div class="grid gap-6 md:grid-cols-2">
-        <ul class="space-y-3 text-slate-700 dark:text-slate-300">
-          <li>🏆 <span class="font-medium">Best Paper Award</span> — ISNCC 2023, Doha, Qatar.</li>
-          <li>🏆 <span class="font-medium">Best Paper Award</span> — IMPACT 2022, Aligarh, India.</li>
-          <li>🎓 <span class="font-medium">Prime Minister’s Laptop Award</span> for Academic Excellence.</li>
-        </ul>
-        <ul class="space-y-3 text-slate-700 dark:text-slate-300">
-            <li>⭐ <span class="font-medium">Fully Funded Scholarship (Abay Kunanbayev)</span> for Master's degree.</li>
-            <li>⭐ <span class="font-medium">Fully Funded Scholarship (Diya Pakistan)</span> for Bachelor's degree.</li>
-            <li>⭐ <span class="font-medium">Fully Funded Scholarship (Goodwill)</span> for College.</li>
-        </ul>
-      </div>
+      <ul class="space-y-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
+        <li>Best Paper Award — ISNCC, Doha (2023).</li>
+        <li>Best Paper Award — IMPACT, India (2022).</li>
+        <li>Fully Funded Scholarship — Abay Kunanbayev (MSc, Nazarbayev University).</li>
+        <li>Fully Funded Scholarship — Diya Pakistan (BSc, UET Peshawar).</li>
+        <li>Prime Minister’s Laptop Award — Academic excellence (BSc).</li>
+        <li>Goodwill Scholarship — Peshawar Model Degree College.</li>
+      </ul>
     </div>
   </section>
 
-  <section id="skills" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- Courses (Mint) -->
+  <section id="courses" class="py-12 bg-emerald-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold tracking-tight mb-6">Technical Skills</h2>
-      <div class="grid gap-6 md:grid-cols-3">
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
-          <h3 class="font-semibold">Programming</h3>
-          <p class="text-slate-700 dark:text-slate-300 mt-2">Python (Scikit-learn, TensorFlow/Keras, Pandas, NumPy, Matplotlib, Seaborn), C, C++</p>
-        </div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
-          <h3 class="font-semibold">Simulation & Modelling</h3>
-          <p class="text-slate-700 dark:text-slate-300 mt-2">ADS (EM/Circuit), MATLAB/Python (System-level), Mathematica, Anaconda (Spyder, Jupyter)</p>
-        </div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800">
-          <h3 class="font-semibold">ML & Optimization</h3>
-          <p class="text-slate-700 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, XGBoost; Grey Wolf, Black Hole, Reptile Search, Whale Optimization & more.</p>
-        </div>
-      </div>
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">Online Courses</h2>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-slate-700 dark:text-slate-300">
+        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Data Science Tools</span> (Certificate: DS0105EN)</li>
+        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Deep Learning Fundamentals with Keras</span> (DL0101EN)</li>
+        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">Simplilearn — Data Science with Python</span> (4405431)</li>
+      </ul>
     </div>
   </section>
 
-  <section id="contact" class="py-16 bg-slate-50 dark:bg-slate-900 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- Languages (Sand) -->
+  <section id="languages" class="py-12 bg-rose-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">Languages</h2>
+      <ul class="list-disc pl-5 text-slate-700 dark:text-slate-300">
+        <li>English — IELTS 7.0 (CEFR C1), proficient in academic & research communication.</li>
+        <li>Pashto — maternal; Urdu — proficient.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Certificates (Gallery) -->
+  <section id="certs" class="py-12 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl font-semibold tracking-tight">Certificates & Documents</h2>
+        <a href="#" class="text-sm text-brand-600 hover:underline">View all →</a>
+      </div>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="/certificates/IBM_Data_Science_Tools.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition">
+          <h3 class="font-semibold group-hover:text-brand-600">IBM — Data Science Tools</h3>
+          <p class="text-sm text-slate-500 mt-1">Certificate (DS0105EN)</p>
+        </a>
+        <a href="/certificates/IBM_DL_with_Keras.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition">
+          <h3 class="font-semibold group-hover:text-brand-600">IBM — Deep Learning with Keras</h3>
+          <p class="text-sm text-slate-500 mt-1">Certificate (DL0101EN)</p>
+        </a>
+        <a href="/certificates/Simplilearn_Data_Science_with_Python.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition">
+          <h3 class="font-semibold group-hover:text-brand-600">Simplilearn — Data Science with Python</h3>
+          <p class="text-sm text-slate-500 mt-1">Certificate (4405431)</p>
+        </a>
+      </div>
+      <p class="text-sm text-slate-500 mt-3">Tip: Create a <code>/certificates</code> folder and upload PDFs/images; update the links above to match filenames.</p>
+    </div>
+  </section>
+
+  <!-- Contact (Neutral) -->
+  <section id="contact" class="py-12 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">Contact</h2>
-        <p class="text-slate-600 dark:text-slate-400 mt-1">I'm actively seeking PhD positions at the intersection of Machine Learning and Electrical Engineering. Let's connect!</p>
+        <p class="text-sm text-slate-500 mt-1">Open to PhD positions in ML × EE; collaborations in RF modelling and ML‑for‑hardware.</p>
       </div>
       <div class="md:col-span-2">
-        <div class="p-6 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white dark:bg-slate-950/50 space-y-3">
-          <p><strong>Email:</strong> <a href="mailto:kashif.khan@nu.edu.kz" class="text-brand-600 hover:underline">kashif.khan@nu.edu.kz</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" class="text-brand-600 hover:underline">linkedin.com/in/kashifkhan8145</a></p>
-          <p><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" class="text-brand-600 hover:underline">View Profile</a></p>
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <p>Email: <a href="mailto:kashif.khan@nu.edu.kz" class="text-brand-600 hover:underline">kashif.khan@nu.edu.kz</a></p>
+          <p>Scholar: <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" class="text-brand-600 hover:underline">Google Scholar</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/kashifkhan8145" class="text-brand-600 hover:underline">linkedin.com/in/kashifkhan8145</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-10 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200/60 dark:border-slate-800 bg-white/60 dark:bg-slate-900/40">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-      <p>© <span id="year"></span> Kashif Khan. All rights reserved.</p>
+      <p>© <span id="year"></span> Kashif Khan</p>
       <div class="flex items-center gap-4">
-        <a href="/Kashif_Khan_CV.pdf" class="hover:text-brand-600" download>CV</a>
-        <a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io" target="_blank" class="hover:text-brand-600">Source</a>
+        <a href="/Kashif_Khan_CV.pdf" class="hover:text-brand-600">CV</a>
+        <a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io" class="hover:text-brand-600">Source</a>
       </div>
     </div>
   </footer>
@@ -315,14 +365,12 @@
       localStorage.setItem('theme', !isDark ? 'dark' : 'light');
     });
 
-    // Simple client-side filter for publications
+    // Publications filter
     const filter = document.getElementById('pubFilter');
     const items = Array.from(document.querySelectorAll('#pubList .pub'));
     filter && filter.addEventListener('input', e => {
       const q = e.target.value.toLowerCase();
-      items.forEach(div => {
-        div.style.display = div.textContent.toLowerCase().includes(q) ? '' : 'none';
-      });
+      items.forEach(li => { li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none'; });
     });
   </script>
 </body>
