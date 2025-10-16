@@ -54,51 +54,89 @@
   {"@context":"https://schema.org","@type":"Person","name":"Kashif Khan","jobTitle":"Research Assistant","affiliation":{"@type":"Organization","name":"Nazarbayev University"},"email":"mailto:kashif.khan@nu.edu.kz","url":"https://kashifkhan8145.github.io","sameAs":["https://scholar.google.com/citations?user=e0CeRSUAAAAJ","https://www.linkedin.com/in/kashifkhan8145","https://github.com/kashifkhan8145"]}
   </script>
 </head>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    // close mobile menu when a link is clicked
+    mobileNav.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => mobileNav.classList.add('hidden')));
+  }
+</script>
+
+  
 <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-display">
   <!-- Header / Nav -->
 <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-6">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
     <!-- Brand -->
-    <a href="#home"
-       class="text-xl font-semibold tracking-tight whitespace-nowrap shrink-0 mr-8">
+    <a href="#home" class="text-xl font-semibold tracking-tight whitespace-nowrap shrink-0 mr-2">
       Kashif&nbsp;Khan
     </a>
 
-    <!-- Nav (grows, sits between brand and buttons) -->
-    <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a href="#about" class="hover:text-brand-600">About</a>
-      <a href="#projects" class="hover:text-brand-600">Projects</a>
-      <a href="#publications" class="hover:text-brand-600">Publications</a>
-      <a href="#experience" class="hover:text-brand-600">Experience</a>
-      <a href="#education" class="hover:text-brand-600">Education</a>
-      <a href="#skills" class="hover:text-brand-600">Skills</a>
-      <a href="#awards" class="hover:text-brand-600">Awards</a>
-      <a href="#courses" class="hover:text-brand-600">Courses</a>
-      <a href="#languages" class="hover:text-brand-600">Languages</a>
-      <a href="#certs" class="hover:text-brand-600">Certificates</a>
-      <a href="#contact" class="hover:text-brand-600">Contact</a>
-    </nav>
+    <!-- Spacer -->
+    <div class="flex-1"></div>
 
-    <!-- Push buttons to far right -->
-    <div class="flex items-center gap-2 ml-auto">
-      <a id="cvBtn" href="/Kashif_Khan_CV.pdf"
-         class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900"
-         download>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
-        </svg>
-        CV
-      </a>
-      <button id="themeToggle"
-              class="p-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900"
-              aria-label="Toggle dark mode">
-        <svg id="sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a1 1 0 011 1v1a1 1 0 11-2 0V4a1 1 0 011-1zM10 14a4 4 0 100-8 4 4 0 000 8zM4 9a1 1 0 100 2H3a1 1 0 100-2h1zm13 0a1 1 0 100 2h-1a1 1 0 100-2h1zM5.636 5.636a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zm8.314 8.314a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM5.636 14.364a1 1 0 010 1.414l-.707.707A1 1 0 013.515 15.07l.707-.707a1 1 0 011.414 0zm8.314-8.314a1 1 0 010-1.414l.707-.707A1 1 0 0115.9 4.93l-.707.707a1 1 0 01-1.414 0z"/></svg>
-        <svg id="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9 9 0 1111 2.248a7 7 0 1010.752 12.754z"/></svg>
-      </button>
+    <!-- Mobile menu button -->
+    <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-slate-300/80 dark:border-slate-700"
+            aria-label="Open menu">
+      <!-- hamburger -->
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Right-side buttons -->
+    <a id="cvBtn" href="/Kashif_Khan_CV.pdf"
+       class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900"
+       download>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+      </svg>
+      CV
+    </a>
+    <button id="themeToggle" class="p-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900"
+            aria-label="Toggle dark mode">
+      <svg id="sun" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a1 1 0 011 1v1a1 1 0 11-2 0V4a1 1 0 011-1zM10 14a4 4 0 100-8 4 4 0 000 8zM4 9a1 1 0 100 2H3a1 1 0 100-2h1zm13 0a1 1 0 100 2h-1a1 1 0 100-2h1zM5.636 5.636a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zm8.314 8.314a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM5.636 14.364a1 1 0 010 1.414l-.707.707A1 1 0 013.515 15.07l.707-.707a1 1 0 011.414 0zm8.314-8.314a1 1 0 010-1.414l.707-.707A1 1 0 0115.9 4.93l-.707.707a1 1 0 01-1.414 0z"/></svg>
+      <svg id="moon" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9 9 0 1111 2.248a7 7 0 1010.752 12.754z"/></svg>
+    </button>
+  </div>
+
+  <!-- Desktop nav -->
+  <nav class="hidden md:flex max-w-6xl mx-auto px-4 pb-3 items-center gap-6 text-sm">
+    <a href="#about" class="hover:text-brand-600">About</a>
+    <a href="#projects" class="hover:text-brand-600">Projects</a>
+    <a href="#publications" class="hover:text-brand-600">Publications</a>
+    <a href="#experience" class="hover:text-brand-600">Experience</a>
+    <a href="#education" class="hover:text-brand-600">Education</a>
+    <a href="#skills" class="hover:text-brand-600">Skills</a>
+    <a href="#awards" class="hover:text-brand-600">Awards</a>
+    <a href="#courses" class="hover:text-brand-600">Courses</a>
+    <a href="#languages" class="hover:text-brand-600">Languages</a>
+    <a href="#certs" class="hover:text-brand-600">Certificates</a>
+    <a href="#contact" class="hover:text-brand-600">Contact</a>
+  </nav>
+
+  <!-- Mobile menu panel -->
+  <div id="mobileNav" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a href="#about" class="py-2">About</a>
+      <a href="#projects" class="py-2">Projects</a>
+      <a href="#publications" class="py-2">Publications</a>
+      <a href="#experience" class="py-2">Experience</a>
+      <a href="#education" class="py-2">Education</a>
+      <a href="#skills" class="py-2">Skills</a>
+      <a href="#awards" class="py-2">Awards</a>
+      <a href="#courses" class="py-2">Courses</a>
+      <a href="#languages" class="py-2">Languages</a>
+      <a href="#certs" class="py-2">Certificates</a>
+      <a href="#contact" class="py-2">Contact</a>
     </div>
   </div>
 </header>
+
 
 
   <!-- Hero -->
@@ -106,34 +144,32 @@
     <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-100 via-white to-accent-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900"></div>
     <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-[220px,1fr] gap-8 items-center">
       <div class="flex md:block justify-center">
-        <img src="/Kashif_Khan.jpg" alt="Portrait of Kashif Khan" class="w-44 h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800">
+        <img src="/Kashif_Khan.jpg" alt="Portrait of Kashif Khan" class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800">
       </div>
       <div>
-        <h1 class="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">Kashif Khan</h1>
+        <h1 class="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight">Kashif Khan</h1>
         <p class="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl"> Research Assistant with an MSc in Electrical &amp; Computer Engineering from Nazarbayev University (THE ranking 400), Kazakhstan. I focus on <strong>applied machine learning</strong>: turning models into reliable, interpretable, and deployment-ready systems.</p>
 
-        <div class="mt-5 flex flex-wrap gap-3 md:gap-4">
+        <div class="mt-5 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4">
           <a href="mailto:kashif.khan@nu.edu.kz"
-             class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
         
           <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener"
-             class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
         
           <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener"
-             class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">LinkedIn</a>
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">LinkedIn</a>
         
           <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener"
-             class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">GitHub</a>
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">GitHub</a>
         
           <a href="/Kashif_Khan_CV.pdf"
-             class="px-4 py-2 rounded-xl bg-accent-500 text-white hover:bg-accent-600" download>CV (PDF)</a>
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-accent-500 text-white hover:bg-accent-600" download>CV (PDF)</a>
         
-          <!-- New CTA -->
           <a href="mailto:kashif.khan@nu.edu.kz?subject=PhD%20opportunity%20—%20Kashif%20Khan&body=Hi%20Kashif,"
-             class="px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">
-            Open to PhD Positions
-          </a>
-       </div>
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Open to PhD Positions</a>
+        </div>
+
 
       </div>
     </div>
