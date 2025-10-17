@@ -11,15 +11,14 @@
   <meta property="og:image" content="/Kashif_Khan.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Favicons (put these files in the repo root) -->
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <!-- Tailwind (no build step) -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -36,8 +35,7 @@
           },
           boxShadow: { glow: '0 10px 30px -10px rgba(59,130,246,.45)'},
           keyframes: {
-            float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
-            reveal: { from: { opacity: 0, transform: 'translateY(14px)' }, to: { opacity: 1, transform: 'translateY(0)' } }
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
           },
           animation: { float: 'float 6s ease-in-out infinite' }
         }
@@ -51,9 +49,13 @@
   <style>
     ::selection { background: rgba(59,130,246,.25); }
     :target { scroll-margin-top: 96px; }
-    /* reveal-on-scroll helper */
     .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.show { opacity: 1; transform: translateY(0); }
+    /* project tilt */
+    .tilt { transition: transform .3s ease, box-shadow .3s ease; transform-style: preserve-3d; }
+    .tilt:hover { transform: perspective(900px) rotateX(3deg) rotateY(-3deg) translateY(-2px); box-shadow: 0 18px 40px -16px rgba(59,130,246,.35); }
+    /* scroll progress bar */
+    #scrollbar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 60; background: linear-gradient(90deg,#60a5fa,#06b6d4); }
   </style>
 
   <!-- JSON-LD -->
@@ -63,20 +65,17 @@
 </head>
 
 <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-display">
-  <!-- Header / Nav -->
+  <!-- Scroll progress bar -->
+  <div id="scrollbar"></div>
+
+  <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
-      <!-- Brand -->
       <a href="#home" class="text-xl font-semibold tracking-tight whitespace-nowrap shrink-0 mr-2">Kashif&nbsp;Khan</a>
-
       <div class="flex-1"></div>
-
-      <!-- Mobile menu button -->
       <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-slate-300/80 dark:border-slate-700" aria-label="Open menu">
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
-
-      <!-- CV + theme -->
       <a id="cvBtn" href="/Kashif_Khan_CV.pdf" download
          class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
@@ -88,7 +87,6 @@
       </button>
     </div>
 
-    <!-- Desktop nav -->
     <nav class="hidden md:flex max-w-6xl mx-auto px-4 pb-3 items-center gap-6 text-sm">
       <a href="#about" class="hover:text-brand-600">About</a>
       <a href="#projects" class="hover:text-brand-600">Projects</a>
@@ -103,7 +101,6 @@
       <a href="#contact" class="hover:text-brand-600">Contact</a>
     </nav>
 
-    <!-- Mobile menu -->
     <div id="mobileNav" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800">
       <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
         <a href="#about" class="py-2">About</a>
@@ -123,32 +120,32 @@
 
   <!-- Hero -->
   <section id="home" class="relative overflow-hidden">
-    <!-- Gradient wash -->
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-100 via-white to-accent-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900"></div>
+    <!-- Gradient (below stars) -->
+    <div class="absolute inset-0 z-[-20] bg-gradient-to-br from-brand-100 via-white to-accent-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900"></div>
 
-    <!-- Floating orbs -->
-    <div class="pointer-events-none absolute inset-0 -z-10">
+    <!-- Floating orbs (below stars) -->
+    <div class="pointer-events-none absolute inset-0 z-[-10]">
       <div class="absolute -top-16 -left-10 w-64 h-64 bg-brand-400/20 blur-3xl rounded-full animate-float"></div>
       <div class="absolute top-20 -right-10 w-72 h-72 bg-accent-500/20 blur-[60px] rounded-full animate-float" style="animation-delay:.8s"></div>
     </div>
 
-    <!-- Constellation canvas -->
-    <canvas id="constellation" class="absolute inset-0 -z-10 pointer-events-none"></canvas>
+    <!-- Constellation canvas (above gradient/orbs, below content) -->
+    <canvas id="constellation" class="absolute inset-0 z-0 pointer-events-none"></canvas>
 
     <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-[220px,1fr] gap-8 items-center">
       <div class="flex md:block justify-center">
-        <img src="/Kashif_Khan.jpg" alt="Portrait of Kashif Khan" class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800">
+        <img id="portrait" src="/Kashif_Khan.jpg" alt="Portrait of Kashif Khan" class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800 will-change-transform">
       </div>
       <div>
-        <h1 class="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight">Kashif Khan</h1>
+        <h1 id="headline" class="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight will-change-transform">Kashif Khan</h1>
         <p class="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl">
           Research Assistant with an MSc in Electrical &amp; Computer Engineering from Nazarbayev University (THE ranking 400), Kazakhstan.
           I focus on <strong>applied machine learning</strong>: turning models into reliable, interpretable, and deployment-ready systems.
         </p>
 
         <div class="mt-5 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4">
-          <a href="mailto:kashif.khan@nu.edu.kz"
-             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
+          <!-- Email now jumps to Contact -->
+          <a href="#contact" class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
           <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener"
              class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
           <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener"
@@ -160,24 +157,6 @@
           <a href="mailto:kashif.khan@nu.edu.kz?subject=PhD%20opportunity%20—%20Kashif%20Khan&body=Hi%20Kashif,"
              class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Looking for a PhD Position</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats counters -->
-  <section id="stats" class="reveal border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 sm:grid-cols-3 gap-6">
-      <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 text-center">
-        <div class="text-3xl font-semibold"><span class="count" data-to="7">0</span>+</div>
-        <div class="text-sm text-slate-500 mt-1">Publications</div>
-      </div>
-      <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 text-center">
-        <div class="text-3xl font-semibold"><span class="count" data-to="4">0</span>+</div>
-        <div class="text-sm text-slate-500 mt-1">Selected Projects</div>
-      </div>
-      <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 text-center col-span-2 sm:col-span-1">
-        <div class="text-3xl font-semibold"><span class="count" data-to="4">0</span> yrs</div>
-        <div class="text-sm text-slate-500 mt-1">Research Experience</div>
       </div>
     </div>
   </section>
@@ -236,7 +215,7 @@
       </div>
 
       <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">PV MPPT Time-Series Forecasting</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Compared ML vs conventional control; robustness under noise & distribution shifts; time-series evaluation metrics.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -246,7 +225,7 @@
           </div>
         </article>
 
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">Remaining Useful Life (RUL) — NASA CMAPSS</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Boosting models for degradation forecasting; ablations, cross-validation, and regime analysis.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -256,7 +235,7 @@
           </div>
         </article>
 
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">Physics-Informed ML for GaN HEMTs</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Embedded device physics into ML; stress-tests across temperature/frequency; Smith chart and residual analysis.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -266,7 +245,7 @@
           </div>
         </article>
 
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">ML-Assisted Filter Design</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">EM-to-fabrication pipeline (ADS + ML + optimization) validated with VNA measurements; design-time reduction.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -326,7 +305,7 @@
         <span class="inline-block px-3 py-1 rounded-xl bg-slate-200 text-slate-800 dark:bg-slate-600/30 dark:text-slate-200">Experience</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold">Research Assistant — Nazarbayev University (RF Research Team)</h3>
             <span class="text-sm text-slate-500">Nov 2021 – Present</span>
@@ -338,7 +317,7 @@
             <li>Co-authored multiple IEEE publications; contributed to multi-institutional projects.</li>
           </ul>
         </article>
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold">Instructor — Invest In Kids, Astana</h3>
             <span class="text-sm text-slate-500">Feb 2023 – Present</span>
@@ -349,7 +328,7 @@
             <li>Encouraged collaboration through coding challenges and group projects.</li>
           </ul>
         </article>
-        <article class="md:col-span-2 p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <article class="tilt md:col-span-2 p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold">PASBAN Human Rights, Protection & Welfare Organization — General Secretary</h3>
             <span class="text-sm text-slate-500">2016 – 2021</span>
@@ -370,7 +349,7 @@
         <span class="inline-block px-3 py-1 rounded-xl bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-200">Education</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">MSc, Electrical & Computer Engineering</h3>
           <p class="text-sm text-slate-500">Nazarbayev University, Astana — Aug 2021 – Jun 2023</p>
           <ul class="mt-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
@@ -378,7 +357,7 @@
             <li>CGPA: 3.21 / 4.0.</li>
           </ul>
         </div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">BSc, Electrical Engineering</h3>
           <p class="text-sm text-slate-500">UET Peshawar — Aug 2015 – Aug 2019</p>
           <ul class="mt-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
@@ -392,20 +371,20 @@
 
   <!-- Skills -->
   <section id="skills" class="reveal py-12 bg-violet-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="max-w-6xl mx_auto px-4">
       <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-200">Technical Strengths</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-3">
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">Programming</h3>
           <p class="text-slate-700 dark:text-slate-300 mt-2">C, C++, Python (scikit-learn, TensorFlow/Keras, Matplotlib, Pandas, NumPy)</p>
         </div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">Simulation & Modelling</h3>
           <p class="text-slate-700 dark:text-slate-300 mt-2">MATLAB/Python (system-level), ADS (EM/circuit), Mathematica, Anaconda (Spyder, Jupyter)</p>
         </div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">ML & Optimization</h3>
           <p class="text-slate-700 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, GBM/LightGBM/XGBoost; GWO, BHO, RSA, SHO, ALO, WOA</p>
         </div>
@@ -437,9 +416,9 @@
         <span class="inline-block px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200">Online Courses</span>
       </h2>
       <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-slate-700 dark:text-slate-300">
-        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Data Science Tools</span> (Certificate: DS0105EN)</li>
-        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Deep Learning Fundamentals with Keras</span> (DL0101EN)</li>
-        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">Simplilearn — Data Science with Python</span> (4405431)</li>
+        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Data Science Tools</span> (DS0105EN)</li>
+        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Deep Learning Fundamentals with Keras</span> (DL0101EN)</li>
+        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">Simplilearn — Data Science with Python</span> (4405431)</li>
       </ul>
     </div>
   </section>
@@ -564,23 +543,47 @@
         items.forEach(li => { li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none'; });
       });
     }
+
+    // Scroll progress bar
+    const bar = document.getElementById('scrollbar');
+    function onScroll() {
+      const h = document.documentElement;
+      const p = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+      bar.style.width = (p * 100).toFixed(2) + '%';
+    }
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Parallax on hero elements
+    const hero = document.getElementById('home');
+    const portrait = document.getElementById('portrait');
+    const headline = document.getElementById('headline');
+    hero.addEventListener('mousemove', (e)=>{
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      portrait.style.transform = `translate3d(${x*8}px, ${y*8}px, 0)`;
+      headline.style.transform = `translate3d(${x*4}px, ${y*4}px, 0)`;
+    });
+    hero.addEventListener('mouseleave', ()=>{
+      portrait.style.transform = 'translate3d(0,0,0)';
+      headline.style.transform = 'translate3d(0,0,0)';
+    });
   });
 
-  // ===== Constellation / Starfield in hero =====
+  // ===== Constellation / Starfield (fills whole hero) =====
   (function(){
     const canvas = document.getElementById('constellation');
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
     let W, H, stars=[], pointer={x:null,y:null}, dark = document.documentElement.classList.contains('dark');
 
-    const cfg = { density: 0.00018, maxSpeed: 0.12, linkDist: 110, linkAlpha: 0.25, sizeMin: 0.6, sizeMax: 1.8 };
+    const cfg = { density: 0.00022, maxSpeed: 0.12, linkDist: 120, linkAlpha: 0.25, sizeMin: 0.6, sizeMax: 1.8 };
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
       W = canvas.width  = Math.floor(rect.width  * devicePixelRatio);
       H = canvas.height = Math.floor(rect.height * devicePixelRatio);
-      canvas.style.width  = rect.width + 'px';
-      canvas.style.height = rect.height + 'px';
       makeStars();
     }
     function makeStars() {
@@ -650,40 +653,13 @@
     resize(); requestAnimationFrame(step);
   })();
 
-  // ===== Animated counters =====
-  (function(){
-    const container = document.getElementById('stats');
-    if (!container) return;
-    const ease = t => 1 - Math.pow(1-t, 3); // easeOutCubic
-    function animate(el){
-      const target = parseFloat(el.dataset.to || '0');
-      const start = performance.now(), dur = 1200 + Math.random()*400;
-      function tick(now){
-        const p = Math.min(1, (now - start) / dur);
-        const v = Math.floor(ease(p) * target);
-        el.textContent = v.toLocaleString();
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }
-    const io = new IntersectionObserver((entries,obs)=>{
-      entries.forEach(e=>{
-        if (e.isIntersecting){
-          e.target.querySelectorAll('.count').forEach(animate);
-          obs.unobserve(e.target);
-        }
-      });
-    }, {threshold:0.35});
-    io.observe(container);
-  })();
-
-  // ===== Draggable linear regression (fixed) =====
+  // ===== Draggable linear regression (unchanged, working) =====
   (function(){
     const canvas = document.getElementById('regCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const W = canvas.width, H = canvas.height;
-    const P = []; // {x,y}
+    const P = [];
     function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
     function seed(){
       P.length = 0;
@@ -726,7 +702,7 @@
       const r=canvas.getBoundingClientRect();
       const cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
       const cy=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
-      return { x: clamp(cx,32,W-12), y: clamp(cy,12,H-24) };
+      return { x: Math.max(32, Math.min(W-12, cx)), y: Math.max(12, Math.min(H-24, cy)) };
     }
     canvas.addEventListener('mousedown', e=>{ const {x,y}=toLocal(e); drag=pick(x,y); });
     canvas.addEventListener('mousemove', e=>{ if(!drag) return; const {x,y}=toLocal(e); drag.x=x; drag.y=y; draw(); });
@@ -736,10 +712,9 @@
     window.addEventListener('touchend', ()=>{ drag=null; });
     canvas.addEventListener('dblclick', e=>{ const {x,y}=toLocal(e); const p=pick(x,y); if(p){ P.splice(P.indexOf(p),1); draw(); } });
     document.getElementById('resetPts')?.addEventListener('click', ()=>{ seed(); draw(); });
-    document.getElementById('jitterPts')?.addEventListener('click', ()=>{ P.forEach(p=>{ p.y = clamp(p.y + (Math.random()-0.5)*30, 24, H-28); }); draw(); });
+    document.getElementById('jitterPts')?.addEventListener('click', ()=>{ P.forEach(p=>{ p.y = Math.max(24, Math.min(H-28, p.y + (Math.random()-0.5)*30)); }); draw(); });
     document.getElementById('addPt')?.addEventListener('click', ()=>{ P.push({ x: 40+Math.random()*(W-80), y: 40+Math.random()*(H-80) }); draw(); });
     draw();
-    // re-draw when theme toggles
     const mo = new MutationObserver(draw);
     mo.observe(document.documentElement, {attributes:true, attributeFilter:['class']});
   })();
