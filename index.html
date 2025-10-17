@@ -39,9 +39,10 @@
           boxShadow: { glow: '0 10px 30px -10px rgba(139,92,246,.45)', 'glow-pink': '0 10px 30px -10px rgba(236,72,153,.45)', 'glow-teal': '0 10px 30px -10px rgba(20,184,166,.45)' },
           keyframes: {
             float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-            pulse-glow: { '0%,100%': { boxShadow: '0 0 20px rgba(139,92,246,0.5)' }, '50%': { boxShadow: '0 0 40px rgba(139,92,246,0.8)' } }
+            pulse-glow: { '0%,100%': { boxShadow: '0 0 20px rgba(139,92,246,0.5)' }, '50%': { boxShadow: '0 0 40px rgba(139,92,246,0.8)' } },
+            fadeIn: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
           },
-          animation: { float: 'float 6s ease-in-out infinite', 'pulse-glow': 'pulse-glow 3s ease-in-out infinite' }
+          animation: { float: 'float 6s ease-in-out infinite', 'pulse-glow': 'pulse-glow 3s ease-in-out infinite', fadeIn: 'fadeIn 0.8s ease-out' }
         }
       }
     }
@@ -74,6 +75,14 @@
     ::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); }
     ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #8b5cf6, #ec4899); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: linear-gradient(135deg, #7c3aed, #db2777); }
+    /* Text shadow for better readability */
+    .text-shadow { text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+    .text-shadow-dark { text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+    /* Card hover effects */
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    /* Smooth transitions */
+    * { transition: color 0.2s ease, background-color 0.2s ease; }
   </style>
 
   <!-- JSON-LD -->
@@ -87,7 +96,7 @@
   <div id="scrollbar"></div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/90 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
       <a href="#home" class="text-xl font-semibold tracking-tight whitespace-nowrap shrink-0 mr-2 gradient-text">Kashif&nbsp;Khan</a>
       <div class="flex-1"></div>
@@ -106,17 +115,17 @@
     </div>
 
     <nav class="hidden md:flex max-w-6xl mx-auto px-4 pb-3 items-center gap-6 text-sm">
-      <a href="#about" class="hover:text-brand-600">About</a>
-      <a href="#projects" class="hover:text-brand-600">Projects</a>
-      <a href="#publications" class="hover:text-brand-600">Publications</a>
-      <a href="#experience" class="hover:text-brand-600">Experience</a>
-      <a href="#education" class="hover:text-brand-600">Education</a>
-      <a href="#skills" class="hover:text-brand-600">Skills</a>
-      <a href="#awards" class="hover:text-brand-600">Awards</a>
-      <a href="#courses" class="hover:text-brand-600">Courses</a>
-      <a href="#languages" class="hover:text-brand-600">Languages</a>
-      <a href="#certs" class="hover:text-brand-600">Certificates</a>
-      <a href="#contact" class="hover:text-brand-600">Contact</a>
+      <a href="#about" class="hover:text-brand-600 transition-colors">About</a>
+      <a href="#projects" class="hover:text-brand-600 transition-colors">Projects</a>
+      <a href="#publications" class="hover:text-brand-600 transition-colors">Publications</a>
+      <a href="#experience" class="hover:text-brand-600 transition-colors">Experience</a>
+      <a href="#education" class="hover:text-brand-600 transition-colors">Education</a>
+      <a href="#skills" class="hover:text-brand-600 transition-colors">Skills</a>
+      <a href="#awards" class="hover:text-brand-600 transition-colors">Awards</a>
+      <a href="#courses" class="hover:text-brand-600 transition-colors">Courses</a>
+      <a href="#languages" class="hover:text-brand-600 transition-colors">Languages</a>
+      <a href="#certs" class="hover:text-brand-600 transition-colors">Certificates</a>
+      <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
     </nav>
 
     <div id="mobileNav" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800">
@@ -139,7 +148,7 @@
   <!-- Hero -->
   <section id="home" class="relative overflow-hidden">
     <!-- Animated gradient background -->
-    <div class="absolute inset-0 z-[-20] animated-gradient opacity-30"></div>
+    <div class="absolute inset-0 z-[-20] animated-gradient opacity-20"></div>
     
     <!-- Gradient overlay -->
     <div class="absolute inset-0 z-[-20] bg-gradient-to-br from-purple-100 via-pink-50 to-indigo-100 dark:from-slate-900 dark:via-purple-950/20 dark:to-slate-900"></div>
@@ -161,7 +170,7 @@
       </div>
       <div>
         <h1 id="headline" class="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight will-change-transform gradient-text">Kashif Khan</h1>
-        <p class="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl">
+        <p class="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl text-shadow">
           Research Assistant with an MSc in Electrical &amp; Computer Engineering from Nazarbayev University (THE ranking 400), Kazakhstan.
           I focus on <strong class="gradient-text-2">applied machine learning</strong>: turning models into reliable, interpretable, and deployment-ready systems.
         </p>
@@ -192,8 +201,12 @@
           <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg">About</span>
         </h2>
       </div>
-      <div class="md:col-span-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-        <p>With a strong background in machine learning (ML) and signal modeling, my primary research interest lies in applying modern ML techniques to solve real-world problems with measurable impact. I aim to develop intelligent systems that can operate reliably in practical environments. My goal is to design ML solutions that are not only accurate but also efficient, interpretable, and applicable to real-time decision-making scenarios. Recent work spans ML-based behavioral modeling of advanced radio frequency devices, ML-assisted microstrip filter design, and metaheuristic optimization. I emphasize reproducibility, careful validation, and solutions that generalize to changing conditions and noise.</p>
+      <div class="md:col-span-2">
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm shadow-lg">
+          <p class="text-slate-800 dark:text-slate-200 leading-relaxed text-shadow">
+            With a strong background in machine learning (ML) and signal modeling, my primary research interest lies in applying modern ML techniques to solve real-world problems with measurable impact. I aim to develop intelligent systems that can operate reliably in practical environments. My goal is to design ML solutions that are not only accurate but also efficient, interpretable, and applicable to real-time decision-making scenarios. Recent work spans ML-based behavioral modeling of advanced radio frequency devices, ML-assisted microstrip filter design, and metaheuristic optimization. I emphasize reproducibility, careful validation, and solutions that generalize to changing conditions and noise.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -204,17 +217,17 @@
       <h2 class="text-2xl font-semibold tracking-tight">
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-fuchsia-500 to-cyan-500 text-white shadow-lg">Fit a line (drag the points)</span>
       </h2>
-      <p class="mt-2 text-slate-600 dark:text-slate-400">Move the points and see the least-squares line update live. This demos how models fit data and how outliers affect slope/intercept and R².</p>
+      <p class="mt-2 text-slate-700 dark:text-slate-300 text-shadow">Move the points and see the least-squares line update live. This demos how models fit data and how outliers affect slope/intercept and R².</p>
 
       <div class="mt-4 grid gap-4 md:grid-cols-[minmax(280px,520px),1fr]">
         <canvas id="regCanvas" width="520" height="320" class="w-full rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/60 shadow-xl"></canvas>
 
         <div class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
           <div class="grid grid-cols-2 gap-3 text-sm">
-            <div><span class="text-slate-500">Slope (m):</span> <span id="slope" class="font-medium gradient-text-3">—</span></div>
-            <div><span class="text-slate-500">Intercept (b):</span> <span id="intercept" class="font-medium gradient-text-3">—</span></div>
-            <div><span class="text-slate-500">R²:</span> <span id="r2" class="font-medium gradient-text-3">—</span></div>
-            <div><span class="text-slate-500">Points:</span> <span id="npoints" class="font-medium gradient-text-3">—</span></div>
+            <div><span class="text-slate-600 dark:text-slate-400">Slope (m):</span> <span id="slope" class="font-medium gradient-text-3">—</span></div>
+            <div><span class="text-slate-600 dark:text-slate-400">Intercept (b):</span> <span id="intercept" class="font-medium gradient-text-3">—</span></div>
+            <div><span class="text-slate-600 dark:text-slate-400">R²:</span> <span id="r2" class="font-medium gradient-text-3">—</span></div>
+            <div><span class="text-slate-600 dark:text-slate-400">Points:</span> <span id="npoints" class="font-medium gradient-text-3">—</span></div>
           </div>
           <div class="mt-4 flex flex-wrap gap-2">
             <button id="resetPts" class="px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transform transition hover:scale-105">Reset</button>
@@ -238,43 +251,43 @@
       </div>
 
       <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text-3">PV MPPT Time-Series Forecasting</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Compared ML vs conventional control; robustness under noise & distribution shifts; time-series evaluation metrics.</p>
+          <p class="mt-1 text-sm text-slate-700 dark:text-slate-300">Compared ML vs conventional control; robustness under noise & distribution shifts; time-series evaluation metrics.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">Python</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">MLP/XGBoost</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">Forecasting</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">Python</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">MLP/XGBoost</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">Forecasting</span>
           </div>
         </article>
 
-        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text-3">Remaining Useful Life (RUL) — NASA CMAPSS</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Boosting models for degradation forecasting; ablations, cross-validation, and regime analysis.</p>
+          <p class="mt-1 text-sm text-slate-700 dark:text-slate-300">Boosting models for degradation forecasting; ablations, cross-validation, and regime analysis.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">Python</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">LightGBM/XGBoost</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">Time-Series</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">Python</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">LightGBM/XGBoost</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">Time-Series</span>
           </div>
         </article>
 
-        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text-3">Physics-Informed ML for GaN HEMTs</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Embedded device physics into ML; stress-tests across temperature/frequency; Smith chart and residual analysis.</p>
+          <p class="mt-1 text-sm text-slate-700 dark:text-slate-300">Embedded device physics into ML; stress-tests across temperature/frequency; Smith chart and residual analysis.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">ANN/GPR</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">Physics-Informed</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">RF</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">ANN/GPR</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">Physics-Informed</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">RF</span>
           </div>
         </article>
 
-        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text-3">ML-Assisted Filter Design</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">EM-to-fabrication pipeline (ADS + ML + optimization) validated with VNA measurements; design-time reduction.</p>
+          <p class="mt-1 text-sm text-slate-700 dark:text-slate-300">EM-to-fabrication pipeline (ADS + ML + optimization) validated with VNA measurements; design-time reduction.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">ADS</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">Evolutionary Opt.</span>
-            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30">Fabrication</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">ADS</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">Evolutionary Opt.</span>
+            <span class="px-2 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/30 dark:to-blue-900/30 text-slate-700 dark:text-slate-300">Fabrication</span>
           </div>
         </article>
       </div>
@@ -291,30 +304,30 @@
         <input id="pubFilter" type="search" placeholder="Filter by keyword..." class="w-56 rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 px-3 py-2 text-sm" />
       </div>
       <div id="pubList" class="mt-6 space-y-6">
-        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <p class="text-sm gradient-text-2">Journal Article (Accepted)</p>
-          <h3 class="font-medium text-lg mt-1">GWO-ANN Based Approach for High-Frequency Microstrip Filter Design and Optimization</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, M. Hashmi. <em>Procedia Computer Science</em> (Elsevier, Scopus Indexed).</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-800 dark:text-slate-200">GWO-ANN Based Approach for High-Frequency Microstrip Filter Design and Optimization</h3>
+          <p class="text-slate-700 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, M. Hashmi. <em>Procedia Computer Science</em> (Elsevier, Scopus Indexed).</p>
         </div>
-        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <p class="text-sm gradient-text-2">Journal Article (Under Review)</p>
-          <h3 class="font-medium text-lg mt-1">Hybrid Approach for Performance Optimization of Gallium Nitride High Electron Mobility Transistors Small-Signal Behavioral Models</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>International Journal of Numerical Modelling</em> (Wiley, SCIE Indexed).</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-800 dark:text-slate-200">Hybrid Approach for Performance Optimization of Gallium Nitride High Electron Mobility Transistors Small-Signal Behavioral Models</h3>
+          <p class="text-slate-700 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>International Journal of Numerical Modelling</em> (Wiley, SCIE Indexed).</p>
         </div>
-        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <p class="text-sm gradient-text-2">Conference Paper</p>
-          <h3 class="font-medium text-lg mt-1">Development and Assessment of ML Based GaN HEMTs Small-Signal Modelling Techniques</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>IEEE ICM</em>, Doha, Qatar, Dec. 2024.</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-800 dark:text-slate-200">Development and Assessment of ML Based GaN HEMTs Small-Signal Modelling Techniques</h3>
+          <p class="text-slate-700 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>IEEE ICM</em>, Doha, Qatar, Dec. 2024.</p>
         </div>
-        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <p class="text-sm gradient-text-2">Conference Paper</p>
-          <h3 class="font-medium text-lg mt-1">Development and Evaluation of ANN, RBNNs, and GRNNs Based Small-Signal Behavioral Models for GaN HEMT Up to 40 GHz</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE MWSCAS</em>, Springfield, USA, Aug. 2024.</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-800 dark:text-slate-200">Development and Evaluation of ANN, RBNNs, and GRNNs Based Small-Signal Behavioral Models for GaN HEMT Up to 40 GHz</h3>
+          <p class="text-slate-700 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE MWSCAS</em>, Springfield, USA, Aug. 2024.</p>
         </div>
-        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <p class="text-sm gradient-text-2">Conference Paper</p>
-          <h3 class="font-medium text-lg mt-1">On Temperature-Dependent Small-Signal Behavioral Modelling of GaN HEMT Using GWO-PSO and WOA</h3>
-          <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE ISNCC</em>, Doha, Qatar, Oct. 2023.</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-800 dark:text-slate-200">On Temperature-Dependent Small-Signal Behavioral Modelling of GaN HEMT Using GWO-PSO and WOA</h3>
+          <p class="text-slate-700 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE ISNCC</em>, Doha, Qatar, Oct. 2023.</p>
         </div>
       </div>
       <p class="mt-6"><a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" class="inline-block gradient-text-2 hover:underline">Full publications list on Google Scholar →</a></p>
@@ -328,10 +341,10 @@
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg">Experience</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold gradient-text-5">Research Assistant — Nazarbayev University (RF Research Team)</h3>
-            <span class="text-sm text-slate-500">Nov 2021 – Present</span>
+            <span class="text-sm text-slate-600 dark:text-slate-400">Nov 2021 – Present</span>
           </div>
           <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
             <li>High-frequency microstrip filter design (ADS) accelerated with ML & evolutionary optimization.</li>
@@ -340,10 +353,10 @@
             <li>Co-authored multiple IEEE publications; contributed to multi-institutional projects.</li>
           </ul>
         </article>
-        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold gradient-text-5">Instructor — Invest In Kids, Astana</h3>
-            <span class="text-sm text-slate-500">Feb 2023 – Present</span>
+            <span class="text-sm text-slate-600 dark:text-slate-400">Feb 2023 – Present</span>
           </div>
           <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
             <li>Designed & delivered Python/ML curricula; mentored project-based learning.</li>
@@ -351,10 +364,10 @@
             <li>Encouraged collaboration through coding challenges and group projects.</li>
           </ul>
         </article>
-        <article class="tilt md:col-span-2 p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <article class="tilt md:col-span-2 p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold gradient-text-5">PASBAN Human Rights, Protection & Welfare Organization — General Secretary</h3>
-            <span class="text-sm text-slate-500">2016 – 2021</span>
+            <span class="text-sm text-slate-600 dark:text-slate-400">2016 – 2021</span>
           </div>
           <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
             <li>Coordinated meetings and operations; ensured compliance and stakeholder communication.</li>
@@ -372,17 +385,17 @@
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-teal-500 to-green-500 text-white shadow-lg">Education</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
-        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text-4">MSc, Electrical & Computer Engineering</h3>
-          <p class="text-sm text-slate-500">Nazarbayev University, Astana — Aug 2021 – Jun 2023</p>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Nazarbayev University, Astana — Aug 2021 – Jun 2023</p>
           <ul class="mt-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
             <li>Thesis: Development of ML-Based Modelling Techniques for Advanced RF Devices.</li>
             <li>CGPA: 3.21 / 4.0.</li>
           </ul>
         </div>
-        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text-4">BSc, Electrical Engineering</h3>
-          <p class="text-sm text-slate-500">UET Peshawar — Aug 2015 – Aug 2019</p>
+          <p class="text-sm text-slate-600 dark:text-slate-400">UET Peshawar — Aug 2015 – Aug 2019</p>
           <ul class="mt-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
             <li>Thesis: Road Power Generation using Freewheel Mechanism.</li>
             <li>CGPA: 3.36 / 4.0.</li>
@@ -399,15 +412,15 @@
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-lg">Technical Strengths</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-3">
-        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text">Programming</h3>
           <p class="text-slate-700 dark:text-slate-300 mt-2">C, C++, Python (scikit-learn, TensorFlow/Keras, Matplotlib, Pandas, NumPy)</p>
         </div>
-        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text">Simulation & Modelling</h3>
           <p class="text-slate-700 dark:text-slate-300 mt-2">MATLAB/Python (system-level), ADS (EM/circuit), Mathematica, Anaconda (Spyder, Jupyter)</p>
         </div>
-        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
+        <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover">
           <h3 class="font-semibold gradient-text">ML & Optimization</h3>
           <p class="text-slate-700 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, GBM/LightGBM/XGBoost; GWO, BHO, RSA, SHO, ALO, WOA</p>
         </div>
@@ -421,14 +434,16 @@
       <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-white shadow-lg">Awards &amp; Achievements</span>
       </h2>
-      <ul class="space-y-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
-        <li>Best Paper Award — ISNCC, Doha (2023).</li>
-        <li>Best Paper Award — IMPACT, India (2022).</li>
-        <li>Fully Funded Scholarship — Abay Kunanbayev (MSc, Nazarbayev University).</li>
-        <li>Fully Funded Scholarship — Diya Pakistan (BSc, UET Peshawar).</li>
-        <li>Prime Minister's Laptop Award — Academic excellence (BSc).</li>
-        <li>Goodwill Scholarship — Peshawar Model Degree College.</li>
-      </ul>
+      <div class="p-6 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm shadow-lg">
+        <ul class="space-y-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
+          <li>Best Paper Award — ISNCC, Doha (2023).</li>
+          <li>Best Paper Award — IMPACT, India (2022).</li>
+          <li>Fully Funded Scholarship — Abay Kunanbayev (MSc, Nazarbayev University).</li>
+          <li>Fully Funded Scholarship — Diya Pakistan (BSc, UET Peshawar).</li>
+          <li>Prime Minister's Laptop Award — Academic excellence (BSc).</li>
+          <li>Goodwill Scholarship — Peshawar Model Degree College.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -438,10 +453,10 @@
       <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg">Online Courses</span>
       </h2>
-      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-slate-700 dark:text-slate-300">
-        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl"><span class="font-medium gradient-text-4">IBM — Data Science Tools</span> (DS0105EN)</li>
-        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl"><span class="font-medium gradient-text-4">IBM — Deep Learning Fundamentals with Keras</span> (DL0101EN)</li>
-        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl"><span class="font-medium gradient-text-4">Simplilearn — Data Science with Python</span> (4405431)</li>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover"><span class="font-medium gradient-text-4">IBM — Data Science Tools</span> (DS0105EN)</li>
+        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover"><span class="font-medium gradient-text-4">IBM — Deep Learning Fundamentals with Keras</span> (DL0101EN)</li>
+        <li class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl card-hover"><span class="font-medium gradient-text-4">Simplilearn — Data Science with Python</span> (4405431)</li>
       </ul>
     </div>
   </section>
@@ -452,10 +467,12 @@
       <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg">Languages</span>
       </h2>
-      <ul class="list-disc pl-5 text-slate-700 dark:text-slate-300">
-        <li>English — IELTS 7.0 (CEFR C1), proficient in academic & research communication.</li>
-        <li>Pashto — maternal; Urdu — proficient.</li>
-      </ul>
+      <div class="p-6 rounded-2xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm shadow-lg">
+        <ul class="list-disc pl-5 text-slate-700 dark:text-slate-300">
+          <li>English — IELTS 7.0 (CEFR C1), proficient in academic & research communication.</li>
+          <li>Pashto — maternal; Urdu — proficient.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -469,17 +486,17 @@
         <a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io/tree/main/certificates" target="_blank" rel="noopener" class="text-sm gradient-text hover:underline">Open folder →</a>
       </div>
       <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <a href="/certificates/IBM_Data_Science_Tools.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition transform hover:scale-105">
-          <h3 class="font-semibold group-hover:text-brand-600">IBM — Data Science Tools</h3>
-          <p class="text-sm text-slate-500 mt-1">Certificate (DS0105EN)</p>
+        <a href="/certificates/IBM_Data_Science_Tools.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 hover:shadow-glow transition transform hover:scale-105 card-hover">
+          <h3 class="font-semibold group-hover:text-brand-600 text-slate-800 dark:text-slate-200">IBM — Data Science Tools</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Certificate (DS0105EN)</p>
         </a>
-        <a href="/certificates/IBM_DL_with_Keras.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition transform hover:scale-105">
-          <h3 class="font-semibold group-hover:text-brand-600">IBM — Deep Learning with Keras</h3>
-          <p class="text-sm text-slate-500 mt-1">Certificate (DL0101EN)</p>
+        <a href="/certificates/IBM_DL_with_Keras.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 hover:shadow-glow transition transform hover:scale-105 card-hover">
+          <h3 class="font-semibold group-hover:text-brand-600 text-slate-800 dark:text-slate-200">IBM — Deep Learning with Keras</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Certificate (DL0101EN)</p>
         </a>
-        <a href="/certificates/Simplilearn_Data_Science_with_Python.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition transform hover:scale-105">
-          <h3 class="font-semibold group-hover:text-brand-600">Simplilearn — Data Science with Python</h3>
-          <p class="text-sm text-slate-500 mt-1">Certificate (4405431)</p>
+        <a href="/certificates/Simplilearn_Data_Science_with_Python.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 hover:shadow-glow transition transform hover:scale-105 card-hover">
+          <h3 class="font-semibold group-hover:text-brand-600 text-slate-800 dark:text-slate-200">Simplilearn — Data Science with Python</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Certificate (4405431)</p>
         </a>
       </div>
       <p class="text-sm text-slate-500 mt-3">Tip: Create a <code>/certificates</code> folder and upload PDFs/images; update the links above to match filenames.</p>
@@ -493,14 +510,14 @@
         <h2 class="text-2xl font-semibold tracking-tight">
           <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-slate-500 to-gray-500 text-white shadow-lg">Contact</span>
         </h2>
-        <p class="text-sm text-slate-500 mt-1">I am actively looking for a PhD position focused on the application of ML.</p>
+        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">I am actively looking for a PhD position focused on the application of ML.</p>
       </div>
       <div class="md:col-span-2">
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 shadow-xl">
-          <p>Email: <a href="mailto:kashif.khan@nu.edu.kz" class="gradient-text hover:underline">kashif.khan@nu.edu.kz</a></p>
-          <p>Scholar: <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener" class="gradient-text hover:underline">Google Scholar</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener" class="gradient-text hover:underline">linkedin.com/in/kashifkhan8145</a></p>
-          <p>GitHub: <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener" class="gradient-text hover:underline">github.com/kashifkhan8145</a></p>
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-800/90 shadow-xl">
+          <p class="text-slate-700 dark:text-slate-300">Email: <a href="mailto:kashif.khan@nu.edu.kz" class="gradient-text hover:underline">kashif.khan@nu.edu.kz</a></p>
+          <p class="text-slate-700 dark:text-slate-300">Scholar: <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener" class="gradient-text hover:underline">Google Scholar</a></p>
+          <p class="text-slate-700 dark:text-slate-300">LinkedIn: <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener" class="gradient-text hover:underline">linkedin.com/in/kashifkhan8145</a></p>
+          <p class="text-slate-700 dark:text-slate-300">GitHub: <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener" class="gradient-text hover:underline">github.com/kashifkhan8145</a></p>
         </div>
       </div>
     </div>
@@ -511,8 +528,8 @@
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
       <p>© <span id="year"></span> Kashif Khan</p>
       <div class="flex items-center gap-4">
-        <a href="/Kashif_Khan_CV.pdf" class="hover:text-brand-600">CV</a>
-        <a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io" target="_blank" rel="noopener" class="hover:text-brand-600">Source</a>
+        <a href="/Kashif_Khan_CV.pdf" class="hover:text-brand-600 transition-colors">CV</a>
+        <a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io" target="_blank" rel="noopener" class="hover:text-brand-600 transition-colors">Source</a>
       </div>
     </div>
   </footer>
