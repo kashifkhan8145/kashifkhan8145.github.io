@@ -3,35 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kashif Khan — MSc in ECE · Machine Learning & Deep Learning</title>
+  <title>Kashif Khan — MSc in ECE · Machine Learning, Deep Learning</title>
   <meta name="description" content="Kashif Khan — research portfolio in Machine Learning & RF/Microwave Engineering." />
   <meta property="og:title" content="Kashif Khan — Machine Learning × RF" />
   <meta property="og:description" content="Research portfolio: GaN HEMT modelling, microstrip filter design, and ML optimization." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/Kashif_Khan.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <!-- Favicons -->
+  <!-- Favicons (put these files in the repo root) -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <!-- Pre-paint theme (prevents flash) -->
-  <script>
-    (function () {
-      try {
-        const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const useDark = stored ? stored === 'dark' : prefersDark;
-        if (useDark) document.documentElement.classList.add('dark');
-      } catch(_) {}
-    })();
-  </script>
-
-  <!-- Tailwind -->
+  <!-- Tailwind (no build step) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -48,21 +36,10 @@
           },
           boxShadow: { glow: '0 10px 30px -10px rgba(59,130,246,.45)'},
           keyframes: {
-            float: { '0%,100%': { transform:'translate3d(0,0,0)' }, '50%': { transform:'translate3d(0,6px,0)' } },
-            hue:   { '0%': { filter:'hue-rotate(0deg)' }, '100%': { filter:'hue-rotate(30deg)' } },
-            orb1:  { '0%': { transform:'translate(-10%, -10%)' }, '50%':{ transform:'translate(10%, 10%)'}, '100%':{ transform:'translate(-10%, -10%)'} },
-            orb2:  { '0%': { transform:'translate(12%, -8%)' },  '50%':{ transform:'translate(-8%, 8%)'}, '100%':{ transform:'translate(12%, -8%)'} },
-            orb3:  { '0%': { transform:'translate(-6%, 8%)' },   '50%':{ transform:'translate(6%, -8%)'}, '100%':{ transform:'translate(-6%, 8%)'} },
-            twCursor: { '0%,49%': { opacity: 1 }, '50%,100%': { opacity: 0 } }
+            float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
+            reveal: { from: { opacity: 0, transform: 'translateY(14px)' }, to: { opacity: 1, transform: 'translateY(0)' } }
           },
-          animation: {
-            float: 'float 6s ease-in-out infinite',
-            hue: 'hue 14s linear infinite',
-            orb1: 'orb1 18s ease-in-out infinite',
-            orb2: 'orb2 22s ease-in-out infinite',
-            orb3: 'orb3 26s ease-in-out infinite',
-            blink: 'twCursor 1.2s steps(1) infinite'
-          }
+          animation: { float: 'float 6s ease-in-out infinite' }
         }
       }
     }
@@ -74,32 +51,9 @@
   <style>
     ::selection { background: rgba(59,130,246,.25); }
     :target { scroll-margin-top: 96px; }
-
-    /* Reveal-on-scroll */
-    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal--visible { opacity: 1; transform: none; }
-
-    /* Scroll progress bar */
-    #scrollbar { transform: scaleX(0); transform-origin: left; transition: transform .12s linear; }
-
-    /* Typewriter caret */
-    .caret::after { content: '▍'; display: inline-block; margin-left: 2px; opacity: .8; }
-    .caret.blink::after { animation: twCursor 1s steps(1) infinite; }
-
-    /* Tilt shiny highlight */
-    .tilt-highlight::before {
-      content: '';
-      position: absolute; inset: -2px;
-      border-radius: 1.5rem;
-      background: conic-gradient(from 0deg, rgba(59,130,246,.18), transparent 40%, rgba(6,182,212,.18), transparent 70%);
-      filter: blur(12px);
-      opacity: .0; transition: opacity .3s ease;
-      pointer-events: none;
-    }
-    .tilt:hover .tilt-highlight::before { opacity: .9; }
-
-    /* Magnetic buttons smoothness */
-    .magnetic { will-change: transform; transition: transform .12s ease; }
+    /* reveal-on-scroll helper */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
   </style>
 
   <!-- JSON-LD -->
@@ -109,21 +63,22 @@
 </head>
 
 <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-display">
-  <!-- Scroll progress bar -->
-  <div id="scrollbar" class="fixed top-0 left-0 right-0 h-[3px] z-[60] bg-gradient-to-r from-brand-500 via-accent-500 to-brand-700 pointer-events-none"></div>
-
   <!-- Header / Nav -->
   <header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
+      <!-- Brand -->
       <a href="#home" class="text-xl font-semibold tracking-tight whitespace-nowrap shrink-0 mr-2">Kashif&nbsp;Khan</a>
+
       <div class="flex-1"></div>
 
+      <!-- Mobile menu button -->
       <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-slate-300/80 dark:border-slate-700" aria-label="Open menu">
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
 
+      <!-- CV + theme -->
       <a id="cvBtn" href="/Kashif_Khan_CV.pdf" download
-         class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900 magnetic">
+         class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-300/80 dark:border-slate-700 text-sm hover:bg-slate-50 dark:hover:bg-slate-900">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
         CV
       </a>
@@ -133,7 +88,8 @@
       </button>
     </div>
 
-    <nav class="hidden md:flex max-w-6xl mx-auto px-4 pb-3 items-center gap-6 text-sm" id="desktopNav">
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex max-w-6xl mx-auto px-4 pb-3 items-center gap-6 text-sm">
       <a href="#about" class="hover:text-brand-600">About</a>
       <a href="#projects" class="hover:text-brand-600">Projects</a>
       <a href="#publications" class="hover:text-brand-600">Publications</a>
@@ -147,6 +103,7 @@
       <a href="#contact" class="hover:text-brand-600">Contact</a>
     </nav>
 
+    <!-- Mobile menu -->
     <div id="mobileNav" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800">
       <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
         <a href="#about" class="py-2">About</a>
@@ -166,43 +123,67 @@
 
   <!-- Hero -->
   <section id="home" class="relative overflow-hidden">
-    <!-- Animated gradient backdrop + floating orbs -->
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-100 via-white to-accent-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 animate-hue"></div>
+    <!-- Gradient wash -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-100 via-white to-accent-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900"></div>
+
+    <!-- Floating orbs -->
     <div class="pointer-events-none absolute inset-0 -z-10">
-      <span class="absolute top-16 left-12 h-32 w-32 rounded-full blur-2xl bg-brand-400/30 dark:bg-brand-700/25 animate-orb1"></span>
-      <span class="absolute bottom-10 right-24 h-28 w-28 rounded-full blur-2xl bg-accent-500/30 dark:bg-accent-700/25 animate-orb2"></span>
-      <span class="absolute top-1/2 left-1/2 h-24 w-24 rounded-full blur-2xl bg-pink-400/30 dark:bg-pink-700/25 animate-orb3"></span>
+      <div class="absolute -top-16 -left-10 w-64 h-64 bg-brand-400/20 blur-3xl rounded-full animate-float"></div>
+      <div class="absolute top-20 -right-10 w-72 h-72 bg-accent-500/20 blur-[60px] rounded-full animate-float" style="animation-delay:.8s"></div>
     </div>
 
+    <!-- Constellation canvas -->
+    <canvas id="constellation" class="absolute inset-0 -z-10 pointer-events-none"></canvas>
+
     <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-[220px,1fr] gap-8 items-center">
-      <div class="flex md:block justify-center [perspective:800px]">
-        <div id="tiltCard" class="tilt relative rounded-3xl">
-          <div class="tilt-highlight absolute inset-0 rounded-3xl"></div>
-          <img src="/Kashif_Khan.jpg" alt="Portrait of Kashif Khan"
-               class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800 animate-float select-none">
-        </div>
+      <div class="flex md:block justify-center">
+        <img src="/Kashif_Khan.jpg" alt="Portrait of Kashif Khan" class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800">
       </div>
       <div>
         <h1 class="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight">Kashif Khan</h1>
         <p class="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl">
           Research Assistant with an MSc in Electrical &amp; Computer Engineering from Nazarbayev University (THE ranking 400), Kazakhstan.
-          I work on <strong class="text-slate-900 dark:text-slate-100"><span id="tw"></span><span class="caret blink"></span></strong> — turning models into reliable, interpretable, deployment-ready systems.
+          I focus on <strong>applied machine learning</strong>: turning models into reliable, interpretable, and deployment-ready systems.
         </p>
 
         <div class="mt-5 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4">
-          <a href="mailto:kashif.khan@nu.edu.kz" class="magnetic w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
-          <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener" class="magnetic w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
-          <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener" class="magnetic w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">LinkedIn</a>
-          <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener" class="magnetic w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">GitHub</a>
-          <a href="/Kashif_Khan_CV.pdf" download class="magnetic w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-accent-500 text-white hover:bg-accent-600">CV (PDF)</a>
-          <a href="mailto:kashif.khan@nu.edu.kz?subject=PhD%20opportunity%20—%20Kashif%20Khan&body=Hi%20Kashif," class="magnetic w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Looking for a PhD Position</a>
+          <a href="mailto:kashif.khan@nu.edu.kz"
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email</a>
+          <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener"
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener"
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">LinkedIn</a>
+          <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener"
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">GitHub</a>
+          <a href="/Kashif_Khan_CV.pdf" download
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl bg-accent-500 text-white hover:bg-accent-600">CV (PDF)</a>
+          <a href="mailto:kashif.khan@nu.edu.kz?subject=PhD%20opportunity%20—%20Kashif%20Khan&body=Hi%20Kashif,"
+             class="w-full sm:w-auto justify-center inline-flex items-center min-h-[44px] px-4 py-2 rounded-xl border border-slate-300/80 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900">Looking for a PhD Position</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Stats counters -->
+  <section id="stats" class="reveal border-t border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 sm:grid-cols-3 gap-6">
+      <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 text-center">
+        <div class="text-3xl font-semibold"><span class="count" data-to="7">0</span>+</div>
+        <div class="text-sm text-slate-500 mt-1">Publications</div>
+      </div>
+      <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 text-center">
+        <div class="text-3xl font-semibold"><span class="count" data-to="4">0</span>+</div>
+        <div class="text-sm text-slate-500 mt-1">Selected Projects</div>
+      </div>
+      <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 text-center col-span-2 sm:col-span-1">
+        <div class="text-3xl font-semibold"><span class="count" data-to="4">0</span> yrs</div>
+        <div class="text-sm text-slate-500 mt-1">Research Experience</div>
+      </div>
+    </div>
+  </section>
+
   <!-- About -->
-  <section id="about" class="py-12 bg-indigo-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="about" class="reveal py-12 bg-indigo-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">
@@ -210,20 +191,18 @@
         </h2>
       </div>
       <div class="md:col-span-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-        <p>With a strong background in machine learning (ML) and signal modeling, my primary research interest lies in applying modern ML techniques to solve real-world problems with measurable impact. I aim to develop intelligent systems that can operate reliably in practical environments. My goal is to design ML solutions that are not only accurate but also efficient, interpretable, and applicable to real-time decision-making scenarios. Recent work spans ML based behavioral modeling of advanced radio frequency devices, ML-assisted microstrip filter design, and metaheuristic optimization. I emphasize reproducibility, careful validation, and solutions that generalize to changing conditions and noise.</p>
+        <p>With a strong background in machine learning (ML) and signal modeling, my primary research interest lies in applying modern ML techniques to solve real-world problems with measurable impact. I aim to develop intelligent systems that can operate reliably in practical environments. My goal is to design ML solutions that are not only accurate but also efficient, interpretable, and applicable to real-time decision-making scenarios. Recent work spans ML-based behavioral modeling of advanced radio frequency devices, ML-assisted microstrip filter design, and metaheuristic optimization. I emphasize reproducibility, careful validation, and solutions that generalize to changing conditions and noise.</p>
       </div>
     </div>
   </section>
 
   <!-- Mini ML Playground: Draggable Linear Regression -->
-  <section id="playground-regression" class="py-12 bg-gradient-to-br from-fuchsia-50/70 via-white to-sky-50/60 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="playground-regression" class="reveal py-12 bg-gradient-to-br from-fuchsia-50/70 via-white to-sky-50/60 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl font-semibold tracking-tight">
         <span class="inline-block px-3 py-1 rounded-xl bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-500/20 dark:text-fuchsia-200">Fit a line (drag the points)</span>
       </h2>
-      <p class="mt-2 text-slate-600 dark:text-slate-400">
-        Move the points and see the least-squares line update live. This demos how models fit data and how outliers affect slope/intercept and R².
-      </p>
+      <p class="mt-2 text-slate-600 dark:text-slate-400">Move the points and see the least-squares line update live. This demos how models fit data and how outliers affect slope/intercept and R².</p>
 
       <div class="mt-4 grid gap-4 md:grid-cols-[minmax(280px,520px),1fr]">
         <canvas id="regCanvas" width="520" height="320" class="w-full rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/60"></canvas>
@@ -247,7 +226,7 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-12 bg-sky-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="projects" class="reveal py-12 bg-sky-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-end justify-between gap-4">
         <h2 class="text-2xl font-semibold tracking-tight">
@@ -255,8 +234,9 @@
         </h2>
         <a href="https://github.com/kashifkhan8145?tab=repositories" target="_blank" rel="noopener" class="text-sm text-brand-600 hover:underline">Browse all repositories →</a>
       </div>
+
       <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition">
+        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">PV MPPT Time-Series Forecasting</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Compared ML vs conventional control; robustness under noise & distribution shifts; time-series evaluation metrics.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -266,7 +246,7 @@
           </div>
         </article>
 
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition">
+        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">Remaining Useful Life (RUL) — NASA CMAPSS</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Boosting models for degradation forecasting; ablations, cross-validation, and regime analysis.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -276,7 +256,7 @@
           </div>
         </article>
 
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition">
+        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">Physics-Informed ML for GaN HEMTs</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Embedded device physics into ML; stress-tests across temperature/frequency; Smith chart and residual analysis.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -286,7 +266,7 @@
           </div>
         </article>
 
-        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50 hover:shadow-glow transition">
+        <article class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
           <h3 class="font-semibold">ML-Assisted Filter Design</h3>
           <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">EM-to-fabrication pipeline (ADS + ML + optimization) validated with VNA measurements; design-time reduction.</p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -300,7 +280,7 @@
   </section>
 
   <!-- Publications -->
-  <section id="publications" class="py-16 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="publications" class="reveal py-16 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-end justify-between gap-4">
         <h2 class="text-2xl font-semibold tracking-tight">
@@ -321,7 +301,7 @@
         </div>
         <div class="pub">
           <p class="text-sm text-brand-600 dark:text-brand-400">Conference Paper</p>
-          <h3 class="font-medium text-lg mt-1">Development and Assessment of ML-Based GaN HEMTs Small-Signal Modelling Techniques</h3>
+          <h3 class="font-medium text-lg mt-1">Development and Assessment of ML Based GaN HEMTs Small-Signal Modelling Techniques</h3>
           <p class="text-slate-600 dark:text-slate-400"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>IEEE ICM</em>, Doha, Qatar, Dec. 2024.</p>
         </div>
         <div class="pub">
@@ -340,9 +320,9 @@
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="py-12 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="experience" class="reveal py-12 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold tracking-tight">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-slate-200 text-slate-800 dark:bg-slate-600/30 dark:text-slate-200">Experience</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
@@ -384,9 +364,9 @@
   </section>
 
   <!-- Education -->
-  <section id="education" class="py-12 bg-cyan-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="education" class="reveal py-12 bg-cyan-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold tracking-tight">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-200">Education</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
@@ -411,23 +391,32 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="py-12 bg-violet-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="skills" class="reveal py-12 bg-violet-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold tracking-tight">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-200">Technical Strengths</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-3">
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><h3 class="font-semibold">Programming</h3><p class="text-slate-700 dark:text-slate-300 mt-2">C, C++, Python (scikit-learn, TensorFlow/Keras, Matplotlib, Pandas, NumPy)</p></div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><h3 class="font-semibold">Simulation & Modelling</h3><p class="text-slate-700 dark:text-slate-300 mt-2">MATLAB/Python (system-level), ADS (EM/circuit), Mathematica, Anaconda (Spyder, Jupyter)</p></div>
-        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><h3 class="font-semibold">ML & Optimization</h3><p class="text-slate-700 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, GBM/LightGBM/XGBoost; GWO, BHO, RSA, SHO, ALO, WOA</p></div>
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Programming</h3>
+          <p class="text-slate-700 dark:text-slate-300 mt-2">C, C++, Python (scikit-learn, TensorFlow/Keras, Matplotlib, Pandas, NumPy)</p>
+        </div>
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Simulation & Modelling</h3>
+          <p class="text-slate-700 dark:text-slate-300 mt-2">MATLAB/Python (system-level), ADS (EM/circuit), Mathematica, Anaconda (Spyder, Jupyter)</p>
+        </div>
+        <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50">
+          <h3 class="font-semibold">ML & Optimization</h3>
+          <p class="text-slate-700 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, GBM/LightGBM/XGBoost; GWO, BHO, RSA, SHO, ALO, WOA</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Awards -->
-  <section id="awards" class="py-12 bg-amber-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="awards" class="reveal py-12 bg-amber-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold tracking-tight">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-200">Awards &amp; Achievements</span>
       </h2>
       <ul class="space-y-2 list-disc pl-5 text-slate-700 dark:text-slate-300">
@@ -442,13 +431,13 @@
   </section>
 
   <!-- Courses -->
-  <section id="courses" class="py-12 bg-emerald-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="courses" class="reveal py-12 bg-emerald-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold tracking-tight">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200">Online Courses</span>
       </h2>
       <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-slate-700 dark:text-slate-300">
-        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Data Science Tools</span> (DS0105EN)</li>
+        <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Data Science Tools</span> (Certificate: DS0105EN)</li>
         <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">IBM — Deep Learning Fundamentals with Keras</span> (DL0101EN)</li>
         <li class="p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-900/50"><span class="font-medium">Simplilearn — Data Science with Python</span> (4405431)</li>
       </ul>
@@ -456,9 +445,9 @@
   </section>
 
   <!-- Languages -->
-  <section id="languages" class="py-12 bg-rose-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="languages" class="reveal py-12 bg-rose-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold tracking-tight">
+      <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-200">Languages</span>
       </h2>
       <ul class="list-disc pl-5 text-slate-700 dark:text-slate-300">
@@ -469,7 +458,7 @@
   </section>
 
   <!-- Certificates -->
-  <section id="certs" class="py-12 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="certs" class="reveal py-12 bg-white dark:bg-slate-950 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-end justify-between">
         <h2 class="text-2xl font-semibold tracking-tight">
@@ -491,11 +480,12 @@
           <p class="text-sm text-slate-500 mt-1">Certificate (4405431)</p>
         </a>
       </div>
+      <p class="text-sm text-slate-500 mt-3">Tip: Create a <code>/certificates</code> folder and upload PDFs/images; update the links above to match filenames.</p>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-12 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800 reveal">
+  <section id="contact" class="reveal py-12 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">
@@ -514,12 +504,6 @@
     </div>
   </section>
 
-  <!-- Scroll-to-top -->
-  <button id="toTop" aria-label="Scroll to top"
-          class="fixed bottom-6 right-6 z-40 h-10 w-10 rounded-full grid place-content-center bg-brand-600 text-white shadow-lg opacity-0 pointer-events-none transition-opacity hover:bg-brand-700">
-    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
-  </button>
-
   <!-- Footer -->
   <footer class="py-10 border-t border-slate-200/60 dark:border-slate-800 bg-white/60 dark:bg-slate-900/40">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
@@ -531,30 +515,14 @@
     </div>
   </footer>
 
-  <!-- =========================================================
-       Scripts
-  ========================================================== -->
+  <!-- Scripts -->
   <script>
+  // DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme toggle
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const sun = document.getElementById('sun');
-    const moon = document.getElementById('moon');
-    function setTheme(dark){
-      if (dark){ root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
-      else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
-    }
-    setTheme(root.classList.contains('dark'));
-    themeToggle.addEventListener('click', () => {
-      const isDark = root.classList.contains('dark');
-      setTheme(!isDark);
-      localStorage.setItem('theme', !isDark ? 'dark' : 'light');
-    });
-
-    // Mobile menu
+    // Mobile nav
     const menuBtn = document.getElementById('menuBtn');
     const mobileNav = document.getElementById('mobileNav');
     if (menuBtn && mobileNav) {
@@ -562,196 +530,219 @@
       mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
     }
 
+    // Dark mode toggle (persistent)
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const sun = document.getElementById('sun');
+    const moon = document.getElementById('moon');
+    function setTheme(dark) {
+      if (dark) { root.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); }
+      else { root.classList.remove('dark'); sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+    }
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(stored ? stored === 'dark' : prefersDark);
+    themeToggle.addEventListener('click', () => {
+      const isDark = root.classList.contains('dark');
+      setTheme(!isDark);
+      localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+    });
+
+    // Reveal on scroll
+    const rev = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
+    },{threshold:0.15});
+    rev.forEach(el=>io.observe(el));
+
     // Publications filter
     const filter = document.getElementById('pubFilter');
     const items = Array.from(document.querySelectorAll('#pubList .pub'));
-    filter && filter.addEventListener('input', e => {
-      const q = e.target.value.toLowerCase();
-      items.forEach(li => { li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none'; });
-    });
-
-    // Reveal-on-scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('reveal--visible');
-          observer.unobserve(e.target);
-        }
+    if (filter) {
+      filter.addEventListener('input', e => {
+        const q = e.target.value.toLowerCase();
+        items.forEach(li => { li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none'; });
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Scroll progress + to-top button + active nav
-    const bar = document.getElementById('scrollbar');
-    const toTop = document.getElementById('toTop');
-    const nav = document.getElementById('desktopNav');
-    const secIds = ['about','projects','publications','experience','education','skills','awards','courses','languages','certs','contact'];
-    const sections = secIds.map(id => document.getElementById(id));
-    const navLinks = secIds.map(id => nav.querySelector(`a[href="#${id}"]`));
-
-    function onScroll() {
-      const t = document.documentElement;
-      const h = t.scrollHeight - t.clientHeight;
-      const p = (t.scrollTop / h);
-      bar.style.transform = `scaleX(${p})`;
-
-      if (window.scrollY > 400) {
-        toTop.style.opacity = 1; toTop.style.pointerEvents = 'auto';
-      } else {
-        toTop.style.opacity = 0; toTop.style.pointerEvents = 'none';
-      }
-
-      // active nav highlight
-      let active = 0;
-      for (let i=0; i<sections.length; i++) {
-        const r = sections[i].getBoundingClientRect();
-        if (r.top <= 140 && r.bottom > 140) { active = i; break; }
-      }
-      navLinks.forEach((a,i) => a.classList.toggle('text-brand-600', i===active));
-      navLinks.forEach((a,i) => a.classList.toggle('font-medium', i===active));
     }
-    document.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  });
 
-    // Typewriter rotating phrases
-    const tw = document.getElementById('tw');
-    const phrases = [
-      'applied machine learning',
-      'physics-informed modeling',
-      'RF × ML',
-      'time-series forecasting',
-      'optimization-in-the-loop'
-    ];
-    let pi = 0, ci = 0, typing = true;
-    function typeLoop() {
-      const text = phrases[pi];
-      if (typing) {
-        ci++;
-        tw.textContent = text.slice(0, ci);
-        if (ci === text.length) { typing = false; setTimeout(typeLoop, 1100); return; }
-        setTimeout(typeLoop, 40);
-      } else {
-        ci--;
-        tw.textContent = text.slice(0, ci);
-        if (ci === 0) { typing = true; pi = (pi + 1) % phrases.length; setTimeout(typeLoop, 250); return; }
-        setTimeout(typeLoop, 20);
+  // ===== Constellation / Starfield in hero =====
+  (function(){
+    const canvas = document.getElementById('constellation');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { alpha: true });
+    let W, H, stars=[], pointer={x:null,y:null}, dark = document.documentElement.classList.contains('dark');
+
+    const cfg = { density: 0.00018, maxSpeed: 0.12, linkDist: 110, linkAlpha: 0.25, sizeMin: 0.6, sizeMax: 1.8 };
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      W = canvas.width  = Math.floor(rect.width  * devicePixelRatio);
+      H = canvas.height = Math.floor(rect.height * devicePixelRatio);
+      canvas.style.width  = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      makeStars();
+    }
+    function makeStars() {
+      const n = Math.floor(W * H * cfg.density / (devicePixelRatio*devicePixelRatio));
+      stars = Array.from({length:n}, () => {
+        const s = cfg.sizeMin + Math.random()*(cfg.sizeMax-cfg.sizeMin);
+        return {
+          x: Math.random()*W, y: Math.random()*H,
+          vx: (Math.random()-0.5)*cfg.maxSpeed*devicePixelRatio,
+          vy: (Math.random()-0.5)*cfg.maxSpeed*devicePixelRatio,
+          r: s*devicePixelRatio, tw: Math.random()*Math.PI*2
+        };
+      });
+    }
+    function step() {
+      ctx.clearRect(0,0,W,H);
+      const starLight = dark ? 'rgba(255,255,255,0.9)' : 'rgba(30,41,59,0.9)';
+      const lineRGB   = dark ? [255,255,255] : [59,130,246];
+
+      for (const s of stars) {
+        s.x += s.vx; s.y += s.vy;
+        if (s.x < 0) s.x += W; else if (s.x > W) s.x -= W;
+        if (s.y < 0) s.y += H; else if (s.y > H) s.y -= H;
+        s.tw += 0.03;
+        const a = 0.6 + 0.4*Math.sin(s.tw);
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+        ctx.fillStyle = starLight.replace('0.9', a.toFixed(2)); ctx.fill();
+      }
+
+      ctx.lineWidth = 1 * devicePixelRatio;
+      for (let i=0;i<stars.length;i++){
+        for (let j=i+1;j<stars.length;j++){
+          const dx = stars[i].x - stars[j].x, dy = stars[i].y - stars[j].y;
+          const d2 = dx*dx + dy*dy, L2 = (cfg.linkDist*devicePixelRatio)**2;
+          if (d2 < L2) {
+            const a = cfg.linkAlpha * (1 - d2 / L2);
+            ctx.strokeStyle = `rgba(${lineRGB[0]},${lineRGB[1]||lineRGB[0]},${lineRGB[2]||lineRGB[0]},${a})`;
+            ctx.beginPath(); ctx.moveTo(stars[i].x,stars[i].y); ctx.lineTo(stars[j].x,stars[j].y); ctx.stroke();
+          }
+        }
+        if (pointer.x!=null){
+          const dx = stars[i].x - pointer.x, dy = stars[i].y - pointer.y;
+          const d2 = dx*dx + dy*dy, L2 = (cfg.linkDist*1.3*devicePixelRatio)**2;
+          if (d2 < L2) {
+            const a = cfg.linkAlpha*1.2 * (1 - d2 / L2);
+            ctx.strokeStyle = `rgba(${lineRGB[0]},${lineRGB[1]||lineRGB[0]},${lineRGB[2]||lineRGB[0]},${a})`;
+            ctx.beginPath(); ctx.moveTo(stars[i].x,stars[i].y); ctx.lineTo(pointer.x,pointer.y); ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(step);
+    }
+    function setPointer(e){
+      const rect = canvas.getBoundingClientRect();
+      const x = (e.touches?e.touches[0].clientX:e.clientX) - rect.left;
+      const y = (e.touches?e.touches[0].clientY:e.clientY) - rect.top;
+      pointer.x = x*devicePixelRatio; pointer.y = y*devicePixelRatio;
+    }
+    canvas.parentElement.addEventListener('mousemove', setPointer);
+    canvas.parentElement.addEventListener('mouseleave', ()=>{ pointer.x=null; pointer.y=null; });
+    canvas.parentElement.addEventListener('touchmove', setPointer, {passive:true});
+    canvas.parentElement.addEventListener('touchend', ()=>{ pointer.x=null; pointer.y=null; });
+
+    const mo = new MutationObserver(()=>{ dark = document.documentElement.classList.contains('dark'); });
+    mo.observe(document.documentElement, {attributes:true, attributeFilter:['class']});
+    new ResizeObserver(resize).observe(canvas);
+    resize(); requestAnimationFrame(step);
+  })();
+
+  // ===== Animated counters =====
+  (function(){
+    const container = document.getElementById('stats');
+    if (!container) return;
+    const ease = t => 1 - Math.pow(1-t, 3); // easeOutCubic
+    function animate(el){
+      const target = parseFloat(el.dataset.to || '0');
+      const start = performance.now(), dur = 1200 + Math.random()*400;
+      function tick(now){
+        const p = Math.min(1, (now - start) / dur);
+        const v = Math.floor(ease(p) * target);
+        el.textContent = v.toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    const io = new IntersectionObserver((entries,obs)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting){
+          e.target.querySelectorAll('.count').forEach(animate);
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.35});
+    io.observe(container);
+  })();
+
+  // ===== Draggable linear regression (fixed) =====
+  (function(){
+    const canvas = document.getElementById('regCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const P = []; // {x,y}
+    function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+    function seed(){
+      P.length = 0;
+      for (let i = 0; i < 8; i++) {
+        const x = 40 + i * ((W - 80) / 7);
+        let y = H * 0.6 - 0.5 * x + 80 * (Math.random() - 0.5);
+        y = clamp(y, 24, H - 28);
+        P.push({ x, y });
       }
     }
-    typeLoop();
-
-    // Magnetic buttons
-    const strength = 18;
-    document.querySelectorAll('.magnetic').forEach(btn => {
-      btn.addEventListener('mousemove', e => {
-        const r = btn.getBoundingClientRect();
-        const x = e.clientX - (r.left + r.width/2);
-        const y = e.clientY - (r.top + r.height/2);
-        btn.style.transform = `translate(${x/strength}px, ${y/strength}px)`;
-      });
-      btn.addEventListener('mouseleave', () => btn.style.transform = 'translate(0,0)');
-    });
-
-    // Parallax tilt on portrait
-    (function(){
-      const card = document.getElementById('tiltCard');
-      if (!card) return;
-      const parent = card.parentElement;
-      parent.addEventListener('mousemove', e => {
-        const r = parent.getBoundingClientRect();
-        const rx = (e.clientX - (r.left + r.width/2)) / r.width;
-        const ry = (e.clientY - (r.top + r.height/2)) / r.height;
-        card.style.transform = `rotateY(${rx*10}deg) rotateX(${-ry*10}deg)`;
-      });
-      parent.addEventListener('mouseleave', () => card.style.transform = 'rotateY(0) rotateX(0)');
-    })();
-
-    // === Draggable linear regression ===
-    (function(){
-      const canvas = document.getElementById('regCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width, H = canvas.height;
-      const P = [];
-      const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
-
-      function seed(){
-        P.length = 0;
-        for (let i=0;i<8;i++){
-          const x = 40 + i * ((W-80)/7);
-          let y = H * 0.6 - 0.5 * x + 80 * (Math.random()-0.5);
-          y = clamp(y, 24, H-28);
-          P.push({x,y});
-        }
-      }
-      seed();
-
-      function fit(){
-        const n = P.length; if (!n) return {m:0,b:0,r2:0};
-        const xs = P.map(p=>p.x), ys = P.map(p=>p.y);
-        const mean = a => a.reduce((s,v)=>s+v,0)/a.length;
-        const mx = mean(xs), my = mean(ys);
-        let num=0, den=0;
-        for(let i=0;i<n;i++){ num+=(xs[i]-mx)*(ys[i]-my); den+=(xs[i]-mx)*(xs[i]-mx); }
-        const m = den ? num/den : 0;
-        const b = my - m*mx;
-        let ssRes=0, ssTot=0;
-        for(let i=0;i<n;i++){ const yhat=m*xs[i]+b; ssRes+=(ys[i]-yhat)**2; ssTot+=(ys[i]-my)**2; }
-        const r2 = ssTot ? 1 - (ssRes/ssTot) : 0;
-        return {m,b,r2};
-      }
-
-      function draw(){
-        ctx.clearRect(0,0,W,H);
-        const isDark = document.documentElement.classList.contains('dark');
-        ctx.strokeStyle = isDark ? '#475569' : '#cbd5e1';
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(32,H-24); ctx.lineTo(W-12,H-24); ctx.moveTo(32,12); ctx.lineTo(32,H-24); ctx.stroke();
-
-        const {m,b,r2} = fit();
-        const x1=32, x2=W-12, y1=m*x1+b, y2=m*x2+b;
-        ctx.strokeStyle = '#06b6d4'; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
-
-        for(const p of P){
-          ctx.fillStyle = '#3b82f6';
-          ctx.beginPath(); ctx.arc(p.x,p.y,6,0,Math.PI*2); ctx.fill();
-          ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 2; ctx.stroke();
-        }
-        const s = v => (v||0).toFixed(3);
-        document.getElementById('slope').textContent = s(m);
-        document.getElementById('intercept').textContent = (b||0).toFixed(1);
-        document.getElementById('r2').textContent = s(r2);
-        document.getElementById('npoints').textContent = P.length;
-      }
-
-      let drag=null;
-      function pick(x,y){ for(const p of P){ const dx=p.x-x, dy=p.y-y; if(dx*dx+dy*dy<=100) return p; } return null; }
-      function toLocal(e){
-        const r = canvas.getBoundingClientRect();
-        const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
-        const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
-        return { x: clamp(cx, 32, W-12), y: clamp(cy, 12, H-24) };
-      }
-
-      canvas.addEventListener('mousedown', e => { const {x,y}=toLocal(e); drag = pick(x,y); });
-      canvas.addEventListener('mousemove', e => { if(!drag) return; const {x,y}=toLocal(e); drag.x=x; drag.y=y; draw(); });
-      window.addEventListener('mouseup',   () => { drag=null; });
-
-      canvas.addEventListener('touchstart', e => { const {x,y}=toLocal(e); drag = pick(x,y); });
-      canvas.addEventListener('touchmove',  e => { if(!drag) return; const {x,y}=toLocal(e); drag.x=x; drag.y=y; draw(); }, {passive:false});
-      window.addEventListener('touchend',   () => { drag=null; });
-
-      canvas.addEventListener('dblclick', e => { const {x,y}=toLocal(e); const p=pick(x,y); if(p){ P.splice(P.indexOf(p),1); draw(); } });
-
-      document.getElementById('resetPts')?.addEventListener('click', ()=>{ seed(); draw(); });
-      document.getElementById('jitterPts')?.addEventListener('click', ()=>{ P.forEach(p=>{ p.y = Math.max(24, Math.min(H-28, p.y + (Math.random()-0.5)*30)); }); draw(); });
-      document.getElementById('addPt')?.addEventListener('click', ()=>{ P.push({ x: 40+Math.random()*(W-80), y: 40+Math.random()*(H-80) }); draw(); });
-
-      draw();
-      const mo = new MutationObserver(draw);
-      mo.observe(document.documentElement, { attributes:true, attributeFilter:['class'] });
-    })();
+    seed();
+    function fit(){
+      const n = P.length; if (!n) return { m:0, b:0, r2:0 };
+      const xs = P.map(p=>p.x), ys=P.map(p=>p.y);
+      const mean = a => a.reduce((s,v)=>s+v,0)/a.length;
+      const mx=mean(xs), my=mean(ys);
+      let num=0, den=0; for(let i=0;i<n;i++){ num+=(xs[i]-mx)*(ys[i]-my); den+=(xs[i]-mx)*(xs[i]-mx); }
+      const m = den ? num/den : 0; const b = my - m*mx;
+      let ssRes=0, ssTot=0; for(let i=0;i<n;i++){ const yhat=m*xs[i]+b; ssRes+=(ys[i]-yhat)**2; ssTot+=(ys[i]-my)**2; }
+      const r2 = ssTot ? 1 - ssRes/ssTot : 0; return {m,b,r2};
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      const isDark = document.documentElement.classList.contains('dark');
+      ctx.strokeStyle = isDark ? '#475569' : '#cbd5e1';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(32,H-24); ctx.lineTo(W-12,H-24); ctx.moveTo(32,12); ctx.lineTo(32,H-24); ctx.stroke();
+      const {m,b,r2}=fit(); const x1=32,x2=W-12,y1=m*x1+b,y2=m*x2+b;
+      ctx.strokeStyle = '#06b6d4'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+      for(const p of P){ ctx.fillStyle='#3b82f6'; ctx.beginPath(); ctx.arc(p.x,p.y,6,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#ffffff'; ctx.lineWidth=2; ctx.stroke(); }
+      const s=v=>(v||0).toFixed(3);
+      document.getElementById('slope').textContent=s(m);
+      document.getElementById('intercept').textContent=(b||0).toFixed(1);
+      document.getElementById('r2').textContent=s(r2);
+      document.getElementById('npoints').textContent=P.length;
+    }
+    let drag=null;
+    function pick(x,y){ for(const p of P){ const dx=p.x-x,dy=p.y-y; if(dx*dx+dy*dy<=100) return p } return null }
+    function toLocal(e){
+      const r=canvas.getBoundingClientRect();
+      const cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+      const cy=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
+      return { x: clamp(cx,32,W-12), y: clamp(cy,12,H-24) };
+    }
+    canvas.addEventListener('mousedown', e=>{ const {x,y}=toLocal(e); drag=pick(x,y); });
+    canvas.addEventListener('mousemove', e=>{ if(!drag) return; const {x,y}=toLocal(e); drag.x=x; drag.y=y; draw(); });
+    window.addEventListener('mouseup', ()=>{ drag=null; });
+    canvas.addEventListener('touchstart', e=>{ const {x,y}=toLocal(e); drag=pick(x,y); });
+    canvas.addEventListener('touchmove', e=>{ if(!drag) return; const {x,y}=toLocal(e); drag.x=x; drag.y=y; draw(); }, {passive:true});
+    window.addEventListener('touchend', ()=>{ drag=null; });
+    canvas.addEventListener('dblclick', e=>{ const {x,y}=toLocal(e); const p=pick(x,y); if(p){ P.splice(P.indexOf(p),1); draw(); } });
+    document.getElementById('resetPts')?.addEventListener('click', ()=>{ seed(); draw(); });
+    document.getElementById('jitterPts')?.addEventListener('click', ()=>{ P.forEach(p=>{ p.y = clamp(p.y + (Math.random()-0.5)*30, 24, H-28); }); draw(); });
+    document.getElementById('addPt')?.addEventListener('click', ()=>{ P.push({ x: 40+Math.random()*(W-80), y: 40+Math.random()*(H-80) }); draw(); });
+    draw();
+    // re-draw when theme toggles
+    const mo = new MutationObserver(draw);
+    mo.observe(document.documentElement, {attributes:true, attributeFilter:['class']});
+  })();
   </script>
 </body>
 </html>
