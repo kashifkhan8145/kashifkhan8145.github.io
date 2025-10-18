@@ -232,8 +232,9 @@
         </h2>
         <a href="https://github.com/kashifkhan8145?tab=repositories" target="_blank" rel="noopener" class="text-sm gradient-text-3 hover:underline">Browse all repositories →</a>
       </div>
-
+  
       <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <!-- Physics-Informed ML for MPPT under Partial Shading -->
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <h3 class="font-semibold gradient-text-3">Physics-Informed ML for MPPT under Partial Shading</h3>
           <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">
@@ -254,41 +255,86 @@
             <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Reproducible Reports</span>
           </div>
         </article>
-      </div>
-
-
+  
+        <!-- Remaining Useful Life (RUL) — NASA C-MAPSS -->
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
-          <h3 class="font-semibold gradient-text-3">Remaining Useful Life (RUL) — NASA CMAPSS</h3>
-          <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">Boosting models for degradation forecasting; ablations, cross-validation, and regime analysis.</p>
+          <h3 class="font-semibold gradient-text-3">Remaining Useful Life (RUL) — NASA C-MAPSS</h3>
+          <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">
+            Built a ConvFormer-style Transformer for turbofan RUL with leakage-proof evaluation: sliding-window sequences, 
+            train-only standardization, lightweight op×sensor interaction features, and GroupKFold cross-validation by unit. 
+            Trained with mixed precision on GPU (TF 2.10) using early stopping and ReduceLROnPlateau. 
+            Beyond regression metrics, we add bootstrap CIs, EVS over the last 30 cycles, a dense alarm-threshold grid (H,K) with F1/cost/lead-time, 
+            and a model-complexity analysis (parameters, estimated FLOPs, per-sample latency).
+          </p>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">
+            Highlights (cap=100): FD001 RMSE ≈ 12.8, FD003 RMSE ≈ 10.0; complexity ~1.46M params / 119M est. FLOPs / ~36&nbsp;ms (FD001 best config). 
+            All tables/figures auto-exported for Overleaf.
+          </p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Python</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">LightGBM/XGBoost</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Transformers</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">TensorFlow (GPU, AMP)</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">GroupKFold CV</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Alarm Analysis (H,K)</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Bootstrap CIs</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Model Complexity</span>
             <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Time-Series</span>
           </div>
         </article>
-
+  
+        <!-- GaN HEMT XGBoost + GWO -->
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
-          <h3 class="font-semibold gradient-text-3">Physics-Informed ML for GaN HEMTs</h3>
-          <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">Embedded device physics into ML; stress-tests across temperature/frequency; Smith chart and residual analysis.</p>
+          <h3 class="font-semibold gradient-text-3">Extrapolation-Aware ML Based Behavioral Modeling for Advanced RF Devices (GaN HEMTs)</h3>
+          <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">
+            Built small-signal S-parameter models for a GaN HEMT across wide conditions such as biasings, fruencies and temperatures using XGBoost and 
+            Grey Wolf Optimizer (GWO) for hyperparameter search. Ran controlled splits to evaluate 
+            <em>interpolation</em> vs. <em>extrapolation</em> along temperature, bias, and frequency. 
+            Results: temperature extrapolation was robust; frequency was intermediate; bias was most 
+            challenging. GWO-XGBoost consistently reduced MSE/MAE and improved \(R^2\) over the default model. 
+            Validated with Smith charts and 3D response maps at representative bands.
+          </p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">ANN/GPR</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Physics-Informed</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">RF</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">XGBoost</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Grey Wolf Optimizer (GWO)</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Metaheuristic Tuning</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Interpolation &amp; Extrapolation</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">RF/mmWave Modeling</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">S-parameters</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Smith Charts</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">3D Visualization</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Python</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">NumPy/Pandas</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">scikit-learn</span>
           </div>
         </article>
-
+  
+        <!-- ML-Assisted Microstrip Filter Design (GWO-ANN) -->
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
-          <h3 class="font-semibold gradient-text-3">ML-Assisted Filter Design</h3>
-          <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">EM-to-fabrication pipeline (ADS + ML + optimization) validated with VNA measurements; design-time reduction.</p>
+          <h3 class="font-semibold gradient-text-3">ML-Assisted Microstrip Filter Design (GWO-ANN)</h3>
+          <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">
+            End-to-end EM → ML surrogate → metaheuristic optimization → fabrication pipeline in ADS.
+            Designed and validated a high-frequency microstrip filters
+            using an <span class="font-medium">ANN surrogate</span> and <span class="font-medium">Grey Wolf Optimizer</span> for rapid design-space exploration.
+            Hardware verified with VNA measurements.
+          </p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
             <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">ADS</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Evolutionary Opt.</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">ANN Surrogate</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Grey Wolf Optimizer</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">EM Simulation</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">VNA Validation</span>
             <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Fabrication</span>
           </div>
+          <!-- Optional CTA row (add links if you have them)
+          <div class="mt-4 flex gap-3">
+            <a href="/pdfs/paper.pdf" class="text-xs font-medium px-3 py-1.5 rounded-lg ring-1 ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">Read paper</a>
+            <a href="/projects/gwo-ann" class="text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900">Project page</a>
+          </div>
+          -->
         </article>
       </div>
     </div>
   </section>
+
 
   <!-- Publications -->
   <section id="publications" class="reveal py-16 bg-gradient-to-br from-pink-50/80 to-purple-50/60 dark:from-slate-900/60 dark:to-slate-900/60 border-t border-slate-200/60 dark:border-slate-800">
