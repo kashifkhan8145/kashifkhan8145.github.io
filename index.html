@@ -268,7 +268,6 @@
           </p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">
             Highlights (cap=100): FD001 RMSE ≈ 12.8, FD003 RMSE ≈ 10.0; complexity ~1.46M params / 119M est. FLOPs / ~36&nbsp;ms (FD001 best config). 
-            All tables/figures auto-exported for Overleaf.
           </p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
             <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Transformers</span>
@@ -289,7 +288,7 @@
             Grey Wolf Optimizer (GWO) for hyperparameter search. Ran controlled splits to evaluate 
             <em>interpolation</em> vs. <em>extrapolation</em> along temperature, bias, and frequency. 
             Results: temperature extrapolation was robust; frequency was intermediate; bias was most 
-            challenging. GWO-XGBoost consistently reduced MSE/MAE and improved \(R^2\) over the default model. 
+            challenging. GWO-XGBoost consistently reduced MSE/MAE and improved R² over the default model. 
             Validated with Smith charts and 3D response maps at representative bands.
           </p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
@@ -311,10 +310,10 @@
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <h3 class="font-semibold gradient-text-3">ML-Assisted Microstrip Filter Design (GWO-ANN)</h3>
           <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">
-            End-to-end EM → ML surrogate → metaheuristic optimization → fabrication pipeline in ADS.
+            End-to-end EM → ML surrogate → metaheuristic optimization → fabrication pipeline in Advance Design System (ADS).
             Designed and validated a high-frequency microstrip filters
             using an <span class="font-medium">ANN surrogate</span> and <span class="font-medium">Grey Wolf Optimizer</span> for rapid design-space exploration.
-            Hardware verified with VNA measurements.
+            Hardware verified with Vactor Network Analyzer (VNA) measurements.
           </p>
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
             <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">ADS</span>
@@ -366,11 +365,25 @@
           <h3 class="font-medium text-lg mt-1 text-slate-900 dark:text-slate-200">Development and Evaluation of ANN, RBNNs, and GRNNs Based Small-Signal Behavioral Models for GaN HEMT Up to 40 GHz</h3>
           <p class="text-slate-800 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE MWSCAS</em>, Springfield, USA, Aug. 2024.</p>
         </div>
+                
         <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <p class="text-sm gradient-text-2">Conference Paper</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-900 dark:text-slate-200">Development and Evaluation of ANN, ACOR-ANN, ALO-ANN Based Small-Signal Behavioral Models for GaN-on-Si HEMT</h3>
+          <p class="text-slate-800 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE ICECS</em>, Istanbul, Turkiye, Dec. 2023.</p>
+          
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
+          <p class="text-sm gradient-text-2">Conference Paper (Best Paper Award)</p>
           <h3 class="font-medium text-lg mt-1 text-slate-900 dark:text-slate-200">On Temperature-Dependent Small-Signal Behavioral Modelling of GaN HEMT Using GWO-PSO and WOA</h3>
           <p class="text-slate-800 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, G. Nauryzbayev, M. Hashmi. <em>IEEE ISNCC</em>, Doha, Qatar, Oct. 2023.</p>
         </div>
+        </div>
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
+          <p class="text-sm gradient-text-2">Conference Paper (Best Paper Award)</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-900 dark:text-slate-200">Temperature Dependent I-V Models for Microwave Transistor Using Radial Basis NNs, Generalized Regression NNs and Feedforward NN</h3>
+          <p class="text-slate-800 dark:text-slate-300">S. Husain, <strong>K. Khan</strong>, Anwar Jarndal, G. Nauryzbayev, M. Hashmi. <em>IEEE IMPACT</em>, Aligarh, India, Nov. 2022.</p>
+        </div>
+
+        
       </div>
       <p class="mt-6"><a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" class="inline-block gradient-text-2 hover:underline">Full publications list on Google Scholar →</a></p>
     </div>
@@ -390,7 +403,7 @@
           </div>
           <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-800 dark:text-slate-300">
             <li>High-frequency microstrip filter design (ADS) accelerated with ML & evolutionary optimization.</li>
-            <li>Behavioral modelling of GaN HEMTs (ANN, RBNN, GRNN, XGBoost, GPR) up to 120 GHz.</li>
+            <li>Investigated and compared multiple ML algorithms for behavioral modeling of advance RF devices, initially up to 40 GHz and currently extending exploration to 120 GHz</li>
             <li>Fabrication & measurement for real-world validation; emphasis on reproducibility.</li>
             <li>Co-authored multiple IEEE publications; contributed to multi-institutional projects.</li>
           </ul>
@@ -400,12 +413,17 @@
             <h3 class="font-semibold gradient-text-2">Instructor — Invest In Kids, Astana</h3>
             <span class="text-sm text-slate-700 dark:text-slate-400">Feb 2023 – Present</span>
           </div>
+        
           <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-800 dark:text-slate-300">
-            <li>Designed & delivered Python/ML curricula; mentored project-based learning.</li>
-            <li>Built interactive teaching materials; simplified complex topics for beginners.</li>
-            <li>Encouraged collaboration through coding challenges and group projects.</li>
+            <li>Designed and delivered practical <strong>Python</strong>, <strong>Machine Learning</strong>, and <strong>AI Agent Automation</strong> (n8n + LLMs) curricula.</li>
+            <li>Built hands-on projects including <strong>Telegram AI chatbots</strong>, <strong>Google Sheets–connected agents</strong>, and <strong>LLMs-powered workflows</strong>.</li>
+            <li>Simplified complex topics—neural networks, model tuning (Grid Search/Random Search), and agent orchestration—into beginner-friendly modules.</li>
+            <li>Mentored students through real automation systems: IELTS Speaking Coach (voice + scoring), daily performance trackers, personal assistant, and data-entry agents.</li>
+            <li>Encouraged collaboration with coding challenges, peer reviews, and group projects; promoted project-based learning and iteration.</li>
+            <li>Focused on modern AI toolchains and no-code + code hybrids to solve real problems and build portfolio-ready work.</li>
           </ul>
         </article>
+
         <article class="tilt md:col-span-2 p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold gradient-text-2">PASBAN Human Rights, Protection & Welfare Organization — General Secretary</h3>
@@ -437,7 +455,7 @@
         </div>
         <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <h3 class="font-semibold gradient-text-4">BSc, Electrical Engineering</h3>
-          <p class="text-sm text-slate-700 dark:text-slate-400">UET Peshawar — Aug 2015 – Aug 2019</p>
+          <p class="text-sm text-slate-700 dark:text-slate-400">University of Engineering and Technology (UET) Peshawar, Pakistan — Aug 2015 – Aug 2019</p>
           <ul class="mt-2 list-disc pl-5 text-slate-800 dark:text-slate-300">
             <li>Thesis: Road Power Generation using Freewheel Mechanism.</li>
             <li>CGPA: 3.36 / 4.0.</li>
@@ -456,7 +474,7 @@
       <div class="grid gap-6 md:grid-cols-3">
         <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <h3 class="font-semibold gradient-text">Programming</h3>
-          <p class="text-slate-800 dark:text-slate-300 mt-2">C, C++, Python (scikit-learn, TensorFlow/Keras, Matplotlib, Pandas, NumPy)</p>
+          <p class="text-slate-800 dark:text-slate-300 mt-2">C, C++, Python (scikit-learn, TensorFlow/Keras, Matplotlib, Pandas, NumPy, )</p>
         </div>
         <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <h3 class="font-semibold gradient-text">Simulation & Modelling</h3>
@@ -464,7 +482,7 @@
         </div>
         <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <h3 class="font-semibold gradient-text">ML & Optimization</h3>
-          <p class="text-slate-800 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, GBM/LightGBM/XGBoost; GWO, BHO, RSA, SHO, ALO, WOA</p>
+          <p class="text-slate-800 dark:text-slate-300 mt-2">ANN, RBNN, GRNN, GPR, GBM/LightGBM/XGBoost; Grey Wolf Optimizer, Black Hole, Reptile Search, Spotted Hyena Optimizer, Ant Lion, Whale Optimization</p>
         </div>
       </div>
     </div>
@@ -512,36 +530,9 @@
       <div class="p-6 rounded-2xl bg-white/95 dark:bg-slate-900/70 backdrop-blur shadow-lg">
         <ul class="list-disc pl-5 text-slate-800 dark:text-slate-300">
           <li>English — IELTS 7.0 (CEFR C1), proficient in academic & research communication.</li>
-          <li>Pashto — maternal; Urdu — proficient.</li>
+          <li>Pashto — Native; Urdu — Native</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- Certificates -->
-  <section id="certs" class="reveal py-12 bg-gradient-to-br from-purple-50/80 to-indigo-50/60 dark:from-slate-900/60 dark:to-slate-900/60 border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-end justify-between">
-        <h2 class="text-2xl font-semibold tracking-tight">
-          <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg">Certificates &amp; Documents</span>
-        </h2>
-        <a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io/tree/main/certificates" target="_blank" rel="noopener" class="text-sm gradient-text hover:underline">Open folder →</a>
-      </div>
-      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <a href="/certificates/IBM_Data_Science_Tools.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 hover:shadow-glow transition">
-          <h3 class="font-semibold group-hover:text-brand-600 text-slate-900 dark:text-slate-200">IBM — Data Science Tools</h3>
-          <p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Certificate (DS0105EN)</p>
-        </a>
-        <a href="/certificates/IBM_DL_with_Keras.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 hover:shadow-glow transition">
-          <h3 class="font-semibold group-hover:text-brand-600 text-slate-900 dark:text-slate-200">IBM — Deep Learning with Keras</h3>
-          <p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Certificate (DL0101EN)</p>
-        </a>
-        <a href="/certificates/Simplilearn_Data_Science_with_Python.pdf" class="group p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 hover:shadow-glow transition">
-          <h3 class="font-semibold group-hover:text-brand-600 text-slate-900 dark:text-slate-200">Simplilearn — Data Science with Python</h3>
-          <p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Certificate (4405431)</p>
-        </a>
-      </div>
-      <p class="text-sm text-slate-600 dark:text-slate-400 mt-3">Tip: Create a <code>/certificates</code> folder and upload PDFs/images; update the links above to match filenames.</p>
     </div>
   </section>
 
