@@ -579,7 +579,7 @@
       <img id="lightboxImg" class="max-h-[88vh] max-w-[92vw] rounded-xl shadow-2xl" alt="">
     </div>
   </section>
-
+   
   <!-- Contact -->
   <section id="contact" class="reveal py-12 bg-gradient-to-br from-slate-50/80 to-gray-50/60 dark:from-slate-900/60 dark:to-slate-900/60 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
@@ -591,6 +591,31 @@
       </div>
       <div class="md:col-span-2">
         <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
+                    <form action="https://formspree.io/f/xblzbadl" method="POST"
+                class="mt-4 grid gap-3 max-w-xl">
+            <!-- Antispam honeypot -->
+            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+          
+            <label class="text-sm text-slate-600 dark:text-slate-400">Name
+              <input name="name" required class="mt-1 w-full rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/70 px-3 py-2">
+            </label>
+            <label class="text-sm text-slate-600 dark:text-slate-400">Email
+              <input type="email" name="email" required class="mt-1 w-full rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/70 px-3 py-2">
+            </label>
+            <label class="text-sm text-slate-600 dark:text-slate-400">Message
+              <textarea name="message" rows="4" required class="mt-1 w-full rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/70 px-3 py-2"></textarea>
+            </label>
+          
+            <!-- Optional: route label helps you sort messages -->
+            <input type="hidden" name="_subject" value="Website Contact (kashifkhan8145.github.io)">
+            <input type="hidden" name="_template" value="table">
+          
+            <button class="w-max px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white shadow-lg">Send</button>
+          
+            <!-- Inline success message (prevent redirect) -->
+            <p id="formStatus" class="text-sm text-emerald-600 dark:text-emerald-400 hidden">Thanks! I’ll reply soon.</p>
+          </form>
+
           <p class="text-slate-800 dark:text-slate-300">Email: <a href="mailto:kashif.khan@nu.edu.kz" class="gradient-text hover:underline">kashif.khan@nu.edu.kz</a></p>
           <p class="text-slate-800 dark:text-slate-300">Scholar: <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener noreferrer" class="gradient-text hover:underline">Google Scholar</a></p>
           <p class="text-slate-800 dark:text-slate-300">LinkedIn: <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener noreferrer" class="gradient-text hover:underline">linkedin.com/in/kashifkhan8145</a></p>
@@ -617,6 +642,26 @@
   document.addEventListener('DOMContentLoaded', () => {
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Contact form inline submission (Formspree)
+    document.querySelectorAll('form[action*="formspree.io"]').forEach(form=>{
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const status = form.querySelector('#formStatus');
+        try{
+          const data = new FormData(form);
+          const res = await fetch(form.action, { method:'POST', body: data, headers:{ 'Accept':'application/json' }});
+          if (res.ok) {
+            form.reset();
+            status?.classList.remove('hidden');
+            setTimeout(()=>status?.classList.add('hidden'), 4000);
+          } else {
+            alert('Sorry—there was an issue submitting the form.');
+          }
+        }catch(err){ alert('Network error. Please email me instead.'); }
+      });
+    });
+
 
     // Mobile nav
     const menuBtn = document.getElementById('menuBtn');
