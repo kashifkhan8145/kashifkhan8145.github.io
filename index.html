@@ -56,6 +56,72 @@
       }
     }
   </script>
+    <script>
+  /* Simple visitor counter using CountAPI (no account).
+     Namespace: your domain (safe characters only).
+     We rate-limit increments to once per day per device.
+  */
+  (function(){
+    const NS = 'kashifkhan8145.github.io';             // <-- your site namespace
+    const PAGE_KEY = 'page_' + location.pathname.replace(/[^\w]/g,'_') || 'home';
+    const TOTAL_KEY = 'site_total';
+  
+    const els = {
+      badge: document.getElementById('visitBadge'),
+      total: document.getElementById('visitTotal'),
+      page:  document.getElementById('visitPage')
+    };
+  
+    const API = {
+      get: (key) => fetch(`https://api.countapi.xyz/get/${NS}/${key}`).then(r=>r.json()),
+      hit: (key) => fetch(`https://api.countapi.xyz/hit/${NS}/${key}`).then(r=>r.json()),
+      createIfMissing: (key) =>
+        fetch(`https://api.countapi.xyz/create?namespace=${encodeURIComponent(NS)}&key=${encodeURIComponent(key)}&value=0&enable_reset=1`)
+    };
+  
+    // rate-limit: once/day per key
+    function shouldIncrement(key){
+      const k = 'counter_'+key+'_last';
+      const last = localStorage.getItem(k);
+      const now = Date.now();
+      if (!last || (now - (+last)) > 24*60*60*1000) { localStorage.setItem(k, String(now)); return true; }
+      return false;
+    }
+  
+    async function ensureKeys(){
+      // CountAPI auto-creates on first 'hit', but we make it explicit
+      await Promise.all([API.createIfMissing(TOTAL_KEY), API.createIfMissing(PAGE_KEY)]).catch(()=>{});
+    }
+  
+    async function update(){
+      try{
+        await ensureKeys();
+  
+        // increment (rate-limited)
+        const incTotal = shouldIncrement(TOTAL_KEY) ? API.hit(TOTAL_KEY) : API.get(TOTAL_KEY);
+        const incPage  = shouldIncrement(PAGE_KEY)  ? API.hit(PAGE_KEY)  : API.get(PAGE_KEY);
+  
+        const [t, p] = await Promise.all([incTotal, incPage]);
+  
+        els.total.textContent = 'total: ' + (t?.value ?? '—');
+        els.page.textContent  = 'this page: ' + (p?.value ?? '—');
+        els.badge.classList.remove('hidden');
+      }catch(e){
+        // fail silently (e.g., if blocked by a network policy)
+        console.warn('Counter failed', e);
+      }
+    }
+  
+    // run and refresh occasionally
+    update();
+    setInterval(update, 60_000);
+  })();
+  </script>
+
+
+
+
+
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -875,5 +941,15 @@
     mo.observe(document.documentElement, {attributes:true, attributeFilter:['class']});
   })();
   </script>
+    <!-- ===== Visitor Counter Badge ===== -->
+  <div id="visitBadge"
+       class="fixed bottom-4 right-4 z-40 text-xs px-3 py-2 rounded-xl bg-white/90 dark:bg-slate-900/70
+              ring-1 ring-slate-200 dark:ring-slate-800 shadow-lg backdrop-blur hidden">
+    <span class="mr-2">👀</span>
+    <span id="visitTotal">total: —</span>
+    <span class="mx-2">•</span>
+    <span id="visitPage">this page: —</span>
+  </div>
+
 </body>
 </html>
