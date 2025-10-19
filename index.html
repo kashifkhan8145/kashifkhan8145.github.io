@@ -56,7 +56,7 @@
       }
     }
   </script>
-
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +87,21 @@
       html { scroll-behavior: auto; }
     }
   </style>
+    <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXBPVE8T4P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+  
+    // Configure GA4
+    gtag('config', 'G-FXBPVE8T4P', {
+      anonymize_ip: true,             // privacy-friendly
+      page_title: document.title,
+      page_path: location.pathname    // keeps anchors from fragmenting reports
+      // , debug_mode: true            // (TEMP) enable while testing → DebugView
+    });
+  </script>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
