@@ -57,12 +57,12 @@
     }
   </script>
   <style>
-  /* Re-usable button helpers (on top of Tailwind) */
-  .btn      { @apply w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2 rounded-xl transition shadow-lg; }
-  .btn-solid{ @apply text-white bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700; }
-  .btn-outline{ @apply border border-slate-300/80 dark:border-slate-700 hover:bg-white/70 dark:hover:bg-slate-900; }
-  .btn-icon { @apply h-4 w-4 shrink-0; }
-</style>
+    .btn      { @apply inline-flex items-center justify-center gap-2 h-11 px-4 rounded-xl transition shadow-lg; }
+    .btn-solid{ @apply text-white bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700; }
+    .btn-outline{ @apply border border-slate-300/80 dark:border-slate-700 hover:bg-white/70 dark:hover:bg-slate-900; }
+    .btn-icon { @apply w-5 h-5 -mt-px shrink-0; } /* every icon exactly 20px */
+  </style>
+
 
 
 
@@ -203,60 +203,52 @@
           I focus on <strong class="gradient-text-2">applied machine learning</strong>: turning models into reliable, interpretable, and deployment-ready systems.
         </p>
 
-        <div class="mt-5 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4">
-          <!-- Contact -->
+        <div class="mt-6 flex flex-wrap gap-3">
           <a href="#contact" class="btn btn-solid">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M3 7l9 6 9-6" /><rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/>
             </svg>
             Email
           </a>
         
-          <!-- Google Scholar -->
-          <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener" class="btn btn-outline">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 3l8 5-8 5-8-5 8-5Z" />
-              <path d="M4 14a8 8 0 0016 0" />
+              <path d="M12 3l8 5-8 5-8-5 8-5Z"/><path d="M4 14a8 8 0 0016 0"/>
             </svg>
             Google Scholar
           </a>
         
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0Z" transform="translate(2 2)"/>
-              <rect x="2" y="9" width="4" height="11" rx="0.5" />
-              <path d="M10 9h3.6v1.9h.05c.5-.9 1.7-2 3.5-2C20 8.9 21 11 21 14.1V20h-4v-5.2c0-1.2-.02-2.8-1.8-2.8-1.8 0-2.1 1.3-2.1 2.7V20H9.9V9H10Z"/>
+              <rect x="2" y="9" width="4" height="11" rx=".5"/><path d="M10 9h3.6v1.9h.05c.5-.9 1.7-2 3.5-2C20 8.9 21 11 21 14.1V20h-4v-5.2c0-1.2-.02-2.8-1.8-2.8-1.8 0-2.1 1.3-2.1 2.7V20H9.9V9Z"/>
             </svg>
             LinkedIn
           </a>
         
-          <!-- GitHub -->
-          <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.34 6.85 9.69.5.09.69-.22.69-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.33 1.11 2.9.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.18 9.18 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" clip-rule="evenodd"/>
+          <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.34 6.85 9.69.5.09.69-.22.69-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.33 1.11 2.9.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.18 9.18 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
             </svg>
             GitHub
           </a>
         
-          <!-- CV -->
-          <a href="/Kashif_Khan_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+          <a href="/Kashif_Khan_CV.pdf" target="_blank" rel="noopener" class="btn btn-solid">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12V8l-4-6Z" />
-              <path d="M14 2v6h6" />
-              <path d="M8 13h8M8 17h8M8 9h3" />
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12V8l-4-6Z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M8 9h3"/>
             </svg>
             CV (PDF)
           </a>
         
-          <!-- PhD interest -->
           <a href="mailto:kashif.khan@nu.edu.kz?subject=PhD%20opportunity%20—%20Kashif%20Khan&body=Hi%20Kashif," class="btn btn-outline">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M5 12l5 5L20 7" />
+              <path d="M5 12l5 5L20 7"/>
             </svg>
             Looking for a PhD Position
           </a>
         </div>
+
 
       </div>
     </div>
