@@ -494,10 +494,17 @@ subsets FD001 through FD004, respectively; complexity ~65K params / 87.8M est. F
             <span class="text-sm text-slate-700 dark:text-slate-400">Nov 2021 – Present</span>
           </div>
           <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-800 dark:text-slate-300">
-            <li>High-frequency microstrip filter design (ADS) accelerated with ML &amp; evolutionary optimization.</li>
-            <li>Investigated and compared multiple ML algorithms for behavioral modeling of advanced RF devices, initially up to 40 GHz and currently extending exploration to 120 GHz.</li>
-            <li>Fabrication &amp; measurement for real-world validation; emphasis on reproducibility.</li>
-            <li>Co-authored multiple IEEE publications; contributed to multi-institutional projects.</li>
+            <li><strong>ML-Assisted Microstrip Filter Design (ADS):</strong> Built an EM → ML-surrogate → optimization pipeline; integrated
+Advanced Design System (ADS) data with ML surrogates and metaheuristic search (e.g., Grey Wolf Optimizer) to
+reduce design time while maintaining accuracy; validated via fabrication and Vector Network Analyzer (VNA) mea-
+surements.</li>
+            <li><strong>Behavioral Modeling of Advanced RF Devices (GaN HEMTs):</strong> Benchmarked NNs/XGBoost/GPR
+for small-signal modeling up to 40 GHz (ongoing to 120 GHz); used global optimization for hyperparameter search;
+assessed interpolation vs. extrapolation across temperature, bias, and frequency; validated with Smith charts and
+response maps.</li>
+            <li><strong>Research Process:</strong> Curated large datasets; enforced leakage-proof evaluation; emphasized reproducibility (clear splits,
+ablations, reporting); co-authored IEEE publications and contributed to multi-institutional projects.</li>
+            
           </ul>
         </article>
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
