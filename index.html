@@ -354,24 +354,39 @@
       </div>
 
       <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <!-- Physics-Informed ML for MPPT under Partial Shading -->
-        <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
-          <h3 class="font-semibold gradient-text-3">Physics-Guided ML for MPPT under Partial Shading</h3>
-          <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">
-            Built a reproducible ML-assisted GMPPT framework using physics-based PV simulation with bypass diodes; benchmarked ANN, RF, SVR, GPR, XGBoost, LightGBM, and CatBoost with a scale-invariant target and deterministic micro-refinement, achieving near-unity tracking efficiency validated via TF, latency, and Wilcoxon tests.
-          </p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Python</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Pandas/NumPy/Scikit-learn</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Synthetic Data</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Feature Engineering</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Model Selection</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Grid Search</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Statistical Testing</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Time-Series Evaluation</span>
-            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Reproducible Reports</span>
-          </div>
-        </article>
+        
+        <!--  ML for MPPT under Partial Shading -->
+    <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
+      <h3 class="font-semibold gradient-text-3">
+        Physics-Guided ML for Global MPPT under Partial Shading
+      </h3>
+    
+      <p class="mt-1 text-sm text-slate-800 dark:text-slate-300">
+        Developed a reproducible, ML-assisted global MPPT framework for photovoltaic systems operating under partial shading, 
+        where the power–voltage characteristic exhibits multiple local optima. A physics-based single-diode PV model with bypass 
+        diode activation was used to generate large-scale synthetic data spanning wide irradiance and temperature variations. 
+        Multiple regressors (ANN, RF, SVR, GPR, XGBoost, LightGBM, CatBoost) were benchmarked using a 
+        <strong>scale-invariant target formulation</strong> to improve generalization across operating conditions.
+      </p>
+    
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">
+        The ML-predicted operating point initializes a lightweight, deterministic micro-refinement stage integrated with a boost 
+        converter, ensuring convergence to the true GMPP. Extensive dynamic PSC simulations demonstrate 
+        <strong>&gt;99.95% tracking factor</strong> with sub-millisecond inference latency, validated through tracking efficiency, 
+        latency analysis, and Wilcoxon significance tests—highlighting suitability for real-time embedded deployment.
+      </p>
+    
+      <div class="mt-3 flex flex-wrap gap-2 text-xs">
+        <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Physics-Guided ML</span>
+        <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Synthetic Data Generation</span>
+        <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Scale-Invariant Targets</span>
+        <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">ANN / GPR / XGBoost / LightGBM</span>
+        <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Hybrid ML + Deterministic Control</span>
+        <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Real-Time Feasibility</span>
+        <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/70">Statistical Validation</span>
+      </div>
+    </article>
+
 
         <!-- Remaining Useful Life (RUL) — NASA C-MAPSS -->
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
@@ -473,6 +488,14 @@
           <h3 class="font-medium text-lg mt-1 text-slate-900 dark:text-slate-200">Hybrid Approach for Performance Optimization of Gallium Nitride High Electron Mobility Transistors Small-Signal Behavioral Models</h3>
           <p class="text-slate-800 dark:text-slate-300"><strong>K. Khan</strong>, S. Husain, A. Jarndal, M. Hashmi. <em>International Journal of Numerical Modelling</em> (Wiley, Scopus and SCIE Indexed).</p>
         </div>
+        <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
+          <p class="text-sm gradient-text-2">Journal Article</p>
+          <h3 class="font-medium text-lg mt-1 text-slate-900 dark:text-slate-200">Machine Learning Assisted Maximum Power Point Tracking With Deterministic Micro-Refinement Under Partial Shading Conditions</h3>
+          <p class="text-slate-800 dark:text-slate-300"><strong>K. Khan</strong>, et all <em>IEEE Open Journal of the Industrial Electronics Society</em> (Under Review; IEEE; SCIE/Scopus).</p>
+        </div>
+
+
+        
         <div class="pub p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <p class="text-sm gradient-text-2">Conference Paper</p>
           <h3 class="font-medium text-lg mt-1 text-slate-900 dark:text-slate-200">Development and Assessment of ML Based GaN HEMTs Small-Signal Modelling Techniques</h3>
