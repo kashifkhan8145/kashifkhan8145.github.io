@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kashif Khan — MSc in ECE · AI, Machine Learning, Deep Learning</title>
-  <meta name="description" content="Kashif Khan — research portfolio in Machine Learning & RF/Microwave Engineering." />
-  <meta property="og:title" content="Kashif Khan — Machine Learning" />
-  <meta property="og:description" content="Research portfolio: Machine Learning, Deep Learning, application of ML, device modelling, microstrip filter design, and ML optimization." />
+  <title>Kashif Khan — Junior Researcher &amp; PhD Student at UWB</title>
+  <meta name="description" content="Academic portfolio of Kashif Khan, Junior Researcher and PhD student at the University of West Bohemia, working on AI-assisted engineering design, RF modelling, optimization, and dependable machine learning." />
+  <meta name="author" content="Kashif Khan" />
+  <meta property="og:title" content="Kashif Khan — Junior Researcher &amp; PhD Student" />
+  <meta property="og:description" content="Research portfolio spanning AI-assisted engineering design, surrogate modelling, RF and microwave systems, optimization, energy systems, and prognostics." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://kashifkhan8145.github.io/Kashif_Khan.jpg" />
   <meta name="theme-color" content="#8b5cf6" />
@@ -21,8 +22,8 @@
   <!-- Canonical & Twitter -->
   <link rel="canonical" href="https://kashifkhan8145.github.io/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kashif Khan — Machine Learning, Deep Learning">
-  <meta name="twitter:description" content="Research portfolio: Machine Learning, Deep Learning, GaN HEMT modelling, microstrip filter design, and ML optimization.">
+  <meta name="twitter:title" content="Kashif Khan — Junior Researcher &amp; PhD Student">
+  <meta name="twitter:description" content="AI-assisted engineering design, surrogate modelling, RF systems, optimization, energy systems, and prognostics.">
   <meta name="twitter:image" content="https://kashifkhan8145.github.io/Kashif_Khan.jpg">
 
   <!-- Tailwind -->
@@ -37,14 +38,14 @@
             serif: ['EB Garamond', 'ui-serif', 'Georgia', 'Cambria'],
           },
           colors: {
-            brand: {50:'#f5f3ff',100:'#ede9fe',200:'#ddd6fe',300:'#c4b5fd',400:'#a78bfa',500:'#8b5cf6',600:'#7c3aed',700:'#6d28d9',800:'#5b21b6',900:'#4c1d95'},
-            accent: {500:'#ec4899',600:'#db2777',700:'#be185d'},
+            brand: {50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'},
+            accent: {500:'#06b6d4',600:'#0891b2',700:'#0e7490'},
             secondary: {500:'#14b8a6',600:'#0d9488',700:'#0f766e'},
             tertiary: {500:'#f59e0b',600:'#d97706',700:'#b45309'}
           },
           boxShadow: {
-            glow: '0 10px 30px -10px rgba(139,92,246,.45)',
-            'glow-pink': '0 10px 30px -10px rgba(236,72,153,.45)',
+            glow: '0 18px 50px -18px rgba(37,99,235,.62)',
+            'glow-pink': '0 18px 50px -18px rgba(6,182,212,.48)',
             'glow-teal': '0 10px 30px -10px rgba(20,184,166,.45)'
           },
           keyframes: {
@@ -56,22 +57,6 @@
       }
     }
   </script>
-  <style>
-    /* uniform icon tiles */
-    .tile { 
-      @apply flex flex-col items-center justify-center w-28 h-24 rounded-2xl 
-             ring-1 ring-slate-200 dark:ring-slate-800 bg-white/90 dark:bg-slate-900/70 
-             hover:bg-white dark:hover:bg-slate-900 transition;
-    }
-    .tile svg { @apply w-4 h-4; }   /* 32px, same for all */
-    .tile span{ @apply text-xs mt-2; }
-  </style>
-
-
-
-
-
-  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,24 +65,291 @@
   <link rel="preload" as="image" href="/Kashif_Khan.jpg" imagesizes="(max-width:768px) 144px, 176px">
 
   <style>
-    ::selection { background: rgba(139,92,246,.25); }
+    :root {
+      --page: #f3f7fc;
+      --surface: #ffffff;
+      --surface-alt: #eef4fa;
+      --ink: #0b172a;
+      --muted: #53657a;
+      --line: #d7e2ee;
+      --navy: #071426;
+      --navy-2: #0b1e38;
+      --blue: #2f6df6;
+      --cyan: #22d3ee;
+    }
+    html.dark {
+      --page: #050b15;
+      --surface: #0a1424;
+      --surface-alt: #0c192b;
+      --ink: #e8f0fa;
+      --muted: #9badc1;
+      --line: #20324a;
+    }
+    ::selection { background: rgba(34,211,238,.28); }
     :target { scroll-margin-top: 96px; }
-    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    body {
+      background: var(--page) !important;
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .34;
+      background-image:
+        linear-gradient(rgba(47,109,246,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47,109,246,.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+    }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1); }
     .reveal.show { opacity: 1; transform: translateY(0); }
-    .tilt { transition: transform .3s ease, box-shadow .3s ease; transform-style: preserve-3d; }
-    .tilt:hover { transform: perspective(900px) rotateX(3deg) rotateY(-3deg) translateY(-2px); box-shadow: 0 18px 40px -16px rgba(139,92,246,.35); }
-    #scrollbar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 60; background: linear-gradient(90deg,#8b5cf6,#ec4899); }
-    .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .gradient-text-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .gradient-text-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .gradient-text-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .tilt { transition: transform .22s ease, box-shadow .25s ease, border-color .25s ease; transform-style: preserve-3d; will-change: transform; }
+    .tilt:hover { border-color: rgba(47,109,246,.42) !important; box-shadow: 0 24px 58px -34px rgba(16,42,78,.6) !important; }
+    #scrollbar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 60; background: linear-gradient(90deg,var(--blue),var(--cyan)); box-shadow: 0 0 18px rgba(34,211,238,.6); }
+    .gradient-text,
+    .gradient-text-2,
+    .gradient-text-3,
+    .gradient-text-4 {
+      background: linear-gradient(125deg, #2563eb 4%, #0891b2 96%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .text-shadow { text-shadow: 0 1px 2px rgba(0,0,0,0.08); }
-    * { transition: color .15s ease, background-color .15s ease; }
+    a, button, input, textarea { transition: color .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
     .backdrop { background: rgba(2,6,23,.65); }
+
+    /* Unified navigation */
+    #siteHeader {
+      background: rgba(7,20,38,.92) !important;
+      border-color: rgba(148,163,184,.18) !important;
+      color: #dbeafe;
+      box-shadow: 0 12px 32px rgba(2,8,23,.18);
+    }
+    #starsTop {
+      position: absolute !important;
+      inset: 0;
+      z-index: 0 !important;
+      opacity: .68;
+      mix-blend-mode: screen;
+    }
+    #siteHeader .gradient-text {
+      background: linear-gradient(120deg,#ffffff,#67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    #siteHeader nav a {
+      color: #c5d3e6;
+      position: relative;
+      padding-bottom: .4rem;
+    }
+    #siteHeader nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--cyan);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s ease;
+    }
+    #siteHeader nav a:hover,
+    #siteHeader nav a.is-active { color: #ffffff; }
+    #siteHeader nav a:hover::after,
+    #siteHeader nav a.is-active::after { transform: scaleX(1); }
+    #siteHeader button,
+    #siteHeader #cvBtn {
+      color: #e6f3ff;
+      border-color: rgba(148,163,184,.36) !important;
+      background: rgba(255,255,255,.04);
+    }
+    #siteHeader button:hover,
+    #siteHeader #cvBtn:hover { background: rgba(255,255,255,.1) !important; }
+    #mobileNav { background: rgba(7,20,38,.98); border-color: rgba(148,163,184,.18) !important; }
+    #mobileNav a { color: #dbeafe; border-bottom: 1px solid rgba(148,163,184,.1); }
+
+    /* Hero: engineering-night visual system */
+    #home {
+      --pointer-x: 72%;
+      --pointer-y: 24%;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+      color: #f8fbff;
+      background:
+        radial-gradient(620px circle at var(--pointer-x) var(--pointer-y), rgba(34,211,238,.14), transparent 48%),
+        radial-gradient(700px circle at 10% 15%, rgba(47,109,246,.22), transparent 50%),
+        linear-gradient(135deg,var(--navy),var(--navy-2) 62%,#071a2b);
+    }
+    #home::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .24;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(125,211,252,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125,211,252,.12) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to right, black, transparent 88%);
+    }
+    #home > .max-w-6xl { position: relative; z-index: 2; width: 100%; }
+    #home #headline {
+      font-size: clamp(2.8rem,7vw,5.4rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      background: linear-gradient(120deg,#ffffff 18%,#a5f3fc 96%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    #home p { color: #c8d6e8 !important; }
+    #home p.text-lg { color: #ffffff !important; }
+    #home strong {
+      background: linear-gradient(120deg,#93c5fd,#67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    #home [aria-label="Current affiliations and research focus"] > div {
+      background: rgba(8,28,51,.72) !important;
+      border-color: rgba(125,211,252,.2) !important;
+      backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    #home [aria-label="Current affiliations and research focus"] p:first-child { color: #67e8f9 !important; }
+    #home [aria-label="Current affiliations and research focus"] p:last-child { color: #f8fbff !important; }
+    #home a[aria-label] {
+      color: #e8f5ff;
+      border-color: rgba(147,197,253,.32) !important;
+      background: rgba(255,255,255,.05);
+    }
+    #home a[aria-label]:hover {
+      background: rgba(34,211,238,.13) !important;
+      border-color: rgba(103,232,249,.58) !important;
+      transform: translateY(-2px);
+    }
+    #home a[aria-label] svg { color: #a5f3fc !important; }
+    #portrait {
+      width: clamp(10.5rem,18vw,13.5rem);
+      height: clamp(10.5rem,18vw,13.5rem);
+      border-radius: 1.75rem;
+      border: 1px solid rgba(165,243,252,.5);
+      outline: 8px solid rgba(255,255,255,.035);
+      box-shadow: 0 28px 70px -26px rgba(34,211,238,.48), 0 18px 45px -24px rgba(0,0,0,.8);
+    }
+    .hero-primary {
+      background: linear-gradient(120deg,#2563eb,#0891b2);
+      color: white !important;
+      border-color: transparent !important;
+      box-shadow: 0 14px 30px -18px rgba(34,211,238,.9);
+    }
+    .hero-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -18px rgba(34,211,238,1); }
+
+    /* Professional content surfaces */
+    section[id]:not(#home) {
+      background: var(--surface) !important;
+      border-color: var(--line) !important;
+    }
+    section[id]:not(#home):nth-of-type(even) { background: var(--surface-alt) !important; }
+    section[id]:not(#home) h2 > span {
+      display: inline-flex !important;
+      align-items: center;
+      gap: .65rem;
+      padding: 0 !important;
+      color: var(--ink) !important;
+      background: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      -webkit-text-fill-color: currentColor;
+    }
+    section[id]:not(#home) h2 > span::before {
+      content: "";
+      width: 2.4rem;
+      height: 3px;
+      border-radius: 3px;
+      background: linear-gradient(90deg,var(--blue),var(--cyan));
+      box-shadow: 0 0 12px rgba(34,211,238,.36);
+    }
+    section[id]:not(#home) .tilt,
+    #pubList .pub,
+    #about .md\:col-span-2 > div,
+    #awards .p-6,
+    #languages .p-6,
+    #contact .md\:col-span-2 > div {
+      background: var(--surface) !important;
+      border: 1px solid var(--line) !important;
+      --tw-ring-color: transparent !important;
+      box-shadow: 0 18px 44px -34px rgba(16,42,78,.6) !important;
+    }
+    .metric-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: .7rem;
+      color: #0e7490;
+      background: rgba(34,211,238,.1);
+      border: 1px solid rgba(8,145,178,.18);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+    #pubFilter,
+    #contact input,
+    #contact textarea {
+      background: var(--page) !important;
+      border-color: var(--line) !important;
+      color: var(--ink) !important;
+    }
+    #pubFilter:focus,
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: var(--blue) !important;
+      box-shadow: 0 0 0 3px rgba(47,109,246,.12);
+    }
+    #contact button {
+      background: linear-gradient(120deg,#2563eb,#0891b2) !important;
+      box-shadow: 0 14px 28px -18px rgba(37,99,235,.9);
+    }
+    #gallery .gallery-img {
+      border-color: var(--line) !important;
+      filter: saturate(.88) contrast(1.02);
+      transition: transform .35s cubic-bezier(.2,.7,.2,1), filter .3s ease, box-shadow .3s ease;
+    }
+    #gallery .gallery-img:hover {
+      transform: translateY(-4px) scale(1.015);
+      filter: saturate(1.04) contrast(1.03);
+      box-shadow: 0 24px 44px -28px rgba(16,42,78,.7);
+    }
+    footer {
+      background: var(--navy) !important;
+      border-color: rgba(148,163,184,.18) !important;
+      color: #9fb3ca !important;
+    }
+    footer p, footer a { color: #9fb3ca !important; }
+    footer a:hover { color: #67e8f9 !important; }
+
+    @media (max-width: 767px) {
+      #home { min-height: auto; }
+      #home > .max-w-6xl { padding-top: 4.25rem; padding-bottom: 4rem; }
+      #home #headline { letter-spacing: -.04em; }
+      #siteHeader #cvBtn { display: none; }
+    }
 
     /* Respect reduced motion: disable animations & starfield */
     @media (prefers-reduced-motion: reduce) {
-      .animate-float, .reveal, .reveal.show { animation: none !important; transition: none !important; }
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; }
+      .animate-float, .reveal, .reveal.show { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
       canvas#starsTop { display: none !important; }
       html { scroll-behavior: auto; }
     }
@@ -120,7 +372,7 @@
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Kashif Khan","jobTitle":"Research Assistant","affiliation":{"@type":"Organization","name":"Nazarbayev University"},"email":"mailto:kashif.khan@nu.edu.kz","url":"https://kashifkhan8145.github.io","sameAs":["https://scholar.google.com/citations?user=e0CeRSUAAAAJ","https://www.linkedin.com/in/kashifkhan8145","https://github.com/kashifkhan8145"]}
+  {"@context":"https://schema.org","@type":"Person","name":"Kashif Khan","jobTitle":"Junior Researcher and PhD Student","affiliation":{"@type":"CollegeOrUniversity","name":"University of West Bohemia"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Nazarbayev University"},{"@type":"CollegeOrUniversity","name":"University of Engineering and Technology Peshawar"}],"email":"mailto:kashif.khan@nu.edu.kz","url":"https://kashifkhan8145.github.io","sameAs":["https://scholar.google.com/citations?user=e0CeRSUAAAAJ","https://www.linkedin.com/in/kashifkhan8145","https://github.com/kashifkhan8145"]}
   </script>
 </head>
 
@@ -128,16 +380,12 @@
   <!-- Scroll progress bar -->
   <div id="scrollbar"></div>
 
-  <!-- ===== TOP STARFIELD (covers header + hero) ===== -->
-  <canvas id="starsTop" class="fixed inset-x-0 top-0 w-full pointer-events-none -z-10"></canvas>
-  
-
   <!-- Header -->
   <header id="siteHeader" class="sticky top-0 z-50 backdrop-blur bg-white/90 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
       <a href="#home" class="text-xl font-semibold tracking-tight whitespace-nowrap shrink-0 mr-2 gradient-text">Kashif&nbsp;Khan</a>
       <div class="flex-1"></div>
-      <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-slate-300/80 dark:border-slate-700" aria-label="Open menu">
+      <button id="menuBtn" class="md:hidden p-2 rounded-xl border border-slate-300/80 dark:border-slate-700" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
       <a id="cvBtn"
@@ -155,15 +403,11 @@
 
     <nav class="hidden md:flex max-w-6xl mx-auto px-4 pb-3 items-center gap-6 text-sm">
       <a href="#about" class="hover:text-brand-600">About</a>
-      <a href="#projects" class="hover:text-brand-600">Projects</a>
+      <a href="#projects" class="hover:text-brand-600">Research</a>
       <a href="#publications" class="hover:text-brand-600">Publications</a>
       <a href="#experience" class="hover:text-brand-600">Experience</a>
       <a href="#education" class="hover:text-brand-600">Education</a>
       <a href="#skills" class="hover:text-brand-600">Skills</a>
-      <a href="#awards" class="hover:text-brand-600">Awards</a>
-      <a href="#courses" class="hover:text-brand-600">Courses</a>
-      <a href="#languages" class="hover:text-brand-600">Languages</a>
-      <a href="#certs" class="hover:text-brand-600">Certificates</a>
       <a href="#gallery" class="hover:text-brand-600">Gallery</a>
       <a href="#contact" class="hover:text-brand-600">Contact</a>
     </nav>
@@ -171,15 +415,11 @@
     <div id="mobileNav" class="md:hidden hidden border-t border-slate-200/60 dark:border-slate-800">
       <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
         <a href="#about" class="py-2">About</a>
-        <a href="#projects" class="py-2">Projects</a>
+        <a href="#projects" class="py-2">Research</a>
         <a href="#publications" class="py-2">Publications</a>
         <a href="#experience" class="py-2">Experience</a>
         <a href="#education" class="py-2">Education</a>
         <a href="#skills" class="py-2">Skills</a>
-        <a href="#awards" class="py-2">Awards</a>
-        <a href="#courses" class="py-2">Courses</a>
-        <a href="#languages" class="py-2">Languages</a>
-        <a href="#certs" class="py-2">Certificates</a>
         <a href="#gallery" class="py-2">Gallery</a>
         <a href="#contact" class="py-2">Contact</a>
       </div>
@@ -188,25 +428,35 @@
 
   <!-- Hero -->
   <section id="home" class="relative overflow-hidden">
-    <!-- Soft wash (kept subtle for readability) -->
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white/70 via-purple-50/50 to-pink-50/50 dark:from-slate-900/80 dark:via-slate-950/70 dark:to-slate-900/80"></div>
-
-    <!-- Floating orbs -->
-    <div class="pointer-events-none absolute inset-0 -z-10">
-      <div class="absolute -top-16 -left-10 w-64 h-64 bg-brand-400/25 blur-3xl rounded-full animate-float"></div>
-      <div class="absolute top-20 -right-10 w-72 h-72 bg-accent-500/25 blur-[60px] rounded-full animate-float" style="animation-delay:.8s"></div>
-    </div>
-
+    <canvas id="starsTop" class="absolute inset-0 h-full w-full pointer-events-none" aria-hidden="true"></canvas>
     <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-[220px,1fr] gap-8 items-center">
       <div class="flex md:block justify-center">
         <img id="portrait" src="/Kashif_Khan.jpg" alt="Portrait of Kashif Khan" class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover ring-2 ring-white shadow-glow dark:ring-slate-800 will-change-transform">
       </div>
       <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-700 dark:text-brand-300">Junior Researcher · PhD Student · Pilsen, Czech Republic</p>
         <h1 id="headline" class="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight will-change-transform gradient-text">Kashif Khan</h1>
-        <p class="mt-3 text-slate-800 dark:text-slate-200 max-w-2xl text-shadow">
-          Research Assistant with an MSc in Electrical &amp; Computer Engineering from Nazarbayev University (THE ranking 401+), Kazakhstan.
-          I focus on <strong class="gradient-text-2">applied machine learning</strong> as a transferable research tool—designing reliable, interpretable, and deployment-ready models that adapt across domains such as RF engineering, energy systems, prognostics, and time-series signal analysis. I thrive in interdisciplinary environments where ML bridges theory, data, and real-world constraints.
+        <p class="mt-3 text-lg font-medium text-slate-900 dark:text-white max-w-3xl">
+          Faculty of Electrical Engineering, University of West Bohemia (UWB)
         </p>
+        <p class="mt-3 text-slate-800 dark:text-slate-200 max-w-3xl text-shadow leading-relaxed">
+          I develop <strong class="gradient-text-2">data-efficient and dependable machine-learning methods</strong> for engineering systems. My doctoral research focuses on AI-assisted optimization of machine design with the goal of reducing expensive numerical simulations, building on my work in RF and microwave modelling, renewable energy, prognostics, and time-series analysis.
+        </p>
+
+        <div class="mt-5 grid max-w-3xl gap-3 sm:grid-cols-3" aria-label="Current affiliations and research focus">
+          <div class="rounded-2xl border border-brand-200/80 bg-white/75 px-4 py-3 dark:border-brand-800/70 dark:bg-slate-900/65">
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700 dark:text-brand-300">Current role</p>
+            <p class="mt-1 text-sm font-medium">Junior Researcher</p>
+          </div>
+          <div class="rounded-2xl border border-brand-200/80 bg-white/75 px-4 py-3 dark:border-brand-800/70 dark:bg-slate-900/65">
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700 dark:text-brand-300">Doctoral study</p>
+            <p class="mt-1 text-sm font-medium">PhD Student at UWB</p>
+          </div>
+          <div class="rounded-2xl border border-brand-200/80 bg-white/75 px-4 py-3 dark:border-brand-800/70 dark:bg-slate-900/65">
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700 dark:text-brand-300">Research focus</p>
+            <p class="mt-1 text-sm font-medium">AI for Engineering Design</p>
+          </div>
+        </div>
 
         <div class="mt-6 flex flex-wrap items-center gap-3">
           <!-- Email -->
@@ -265,12 +515,14 @@
           >
             CV (PDF)
           </a>
-                   
           <a
-            class="ml-2 inline-flex h-11 items-center justify-center rounded-full border border-brand-600/60 px-5 text-sm font-semibold text-brand-700 dark:text-brand-300 hover:bg-brand-500/10 transition-all"
+            href="#contact"
+            class="hero-primary inline-flex h-11 items-center justify-center gap-2 rounded-full border px-5 text-sm font-semibold"
           >
-            
+            Research collaboration
+            <span aria-hidden="true">→</span>
           </a>
+                   
         </div>
 
 
@@ -287,7 +539,7 @@
       <!-- Publications -->
       <div class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 
                   bg-white/95 dark:bg-slate-900/70 shadow-xl text-center">
-        <div class="text-3xl">📄</div>
+        <div class="metric-index">01</div>
         <p class="mt-2 text-sm font-semibold gradient-text">
           7+ Peer-Reviewed Papers
         </p>
@@ -299,7 +551,7 @@
       <!-- Awards -->
       <div class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 
                   bg-white/95 dark:bg-slate-900/70 shadow-xl text-center">
-        <div class="text-3xl">🏆</div>
+        <div class="metric-index">02</div>
         <p class="mt-2 text-sm font-semibold gradient-text-2">
           2 Best Paper Awards
         </p>
@@ -311,12 +563,12 @@
       <!-- Experience -->
       <div class="tilt p-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 
                   bg-white/95 dark:bg-slate-900/70 shadow-xl text-center">
-        <div class="text-3xl">📈</div>
+        <div class="metric-index">03</div>
         <p class="mt-2 text-sm font-semibold gradient-text-3">
-          ML Research Experience
+          Research Across Europe &amp; Asia
         </p>
         <p class="text-xs text-slate-600 dark:text-slate-400">
-          2021 – Present
+          UWB · Nazarbayev University
         </p>
       </div>
 
@@ -338,21 +590,18 @@
       <div class="md:col-span-2">
         <div class="p-6 rounded-2xl bg-white/90 dark:bg-slate-900/70 backdrop-blur shadow-lg">
             <p class="text-slate-800 dark:text-slate-200 leading-relaxed text-shadow">
-            I am a research-focused ML expert with a strong foundation in signal modeling, optimization, and data-driven system design. 
-            I approach machine learning as a <strong>domain-agnostic research methodology</strong>; a flexible tool for modeling, prediction, and decision-making across disciplines rather than a technique tied to a single application area.
+            I am a Junior Researcher and PhD student at the <strong>University of West Bohemia</strong> in Pilsen, Czech Republic. My current work explores how machine learning can make engineering design and optimization more data-efficient, particularly when high-fidelity numerical simulations are computationally expensive.
             </p>
             
             <p class="mt-3 text-slate-800 dark:text-slate-200 leading-relaxed text-shadow">
-            My work emphasizes building ML systems that are not only accurate, but also <strong>robust, interpretable, and deployable under real-world constraints</strong>. 
-            Across projects in RF device modeling, renewable energy systems, prognostics, and time-series analysis, I focus on leakage-proof evaluation, extrapolation-aware validation, and physics- or domain-informed learning where appropriate.
+            My research foundation combines machine learning, signal modelling, optimization, and data-driven system design. Across RF device modelling, renewable-energy systems, prognostics, and time-series analysis, I emphasize <strong>robustness, interpretability, reproducible evaluation, and practical deployment constraints</strong>.
             </p>
             
             <p class="mt-3 text-slate-800 dark:text-slate-200 leading-relaxed text-shadow">
-            I am particularly motivated by <strong>interdisciplinary research environments</strong> where machine learning bridges theory, data, and physical systems. 
-            I enjoy collaborating with domain experts, rapidly adapting ML techniques to new problem settings, and translating abstract models into solutions with measurable scientific or engineering impact.
+            Before joining UWB, I worked with the RF research team at Nazarbayev University, where I developed ML-based behavioural models for GaN HEMTs and surrogate-assisted workflows for high-frequency filter design. This work led to peer-reviewed journal and IEEE conference publications, including two Best Paper Awards.
             </p>
             <p class="mt-3 text-slate-800 dark:text-slate-200 leading-relaxed text-shadow">
-            My long-term goal is to pursue doctoral research where machine learning methods are developed and applied across domains such as engineering, energy, healthcare, or scientific modeling.
+            I enjoy interdisciplinary collaboration where machine learning connects theory, experimental data, and physical systems. My doctoral work continues this direction by developing reliable AI methods that reduce computational effort while preserving engineering accuracy.
             </p>
 
 
@@ -580,10 +829,25 @@
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg">Experience</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
+        <article class="tilt md:col-span-2 p-5 rounded-2xl ring-1 ring-brand-200 dark:ring-brand-800 bg-gradient-to-br from-white to-brand-50/80 dark:from-slate-900/95 dark:to-brand-950/30 shadow-xl">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-300">Current appointment</p>
+              <h3 class="mt-1 font-semibold gradient-text">Junior Researcher &amp; PhD Student — University of West Bohemia</h3>
+              <p class="mt-1 text-sm text-slate-700 dark:text-slate-400">Faculty of Electrical Engineering · Pilsen, Czech Republic</p>
+            </div>
+            <span class="text-sm text-slate-700 dark:text-slate-400 whitespace-nowrap">2026 – Present</span>
+          </div>
+          <ul class="mt-3 list-disc pl-5 space-y-1 text-slate-800 dark:text-slate-300">
+            <li>Researching AI-assisted optimization for machine design, with emphasis on reducing the number and cost of high-fidelity numerical simulations.</li>
+            <li>Developing data-efficient surrogate-modelling and optimization workflows that connect machine learning with physics-based engineering analysis.</li>
+            <li>Pursuing doctoral research within an interdisciplinary environment spanning artificial intelligence, industrial informatics, and electrical engineering.</li>
+          </ul>
+        </article>
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <h3 class="font-semibold gradient-text-2">Research Assistant — Nazarbayev University (RF Research Team)</h3>
-            <span class="text-sm text-slate-700 dark:text-slate-400">Nov 2021 – Present</span>
+            <span class="text-sm text-slate-700 dark:text-slate-400 whitespace-nowrap">Nov 2021 – Jun 2026</span>
           </div>
           <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-800 dark:text-slate-300">
             <li><strong>ML-Assisted Microstrip Filter Design (ADS):</strong> Built an EM → ML-surrogate → optimization pipeline; integrated
@@ -600,7 +864,7 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
           </ul>
         </article>
         <article class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <h3 class="font-semibold gradient-text-2">Instructor — Invest In Kids, Astana</h3>
             <span class="text-sm text-slate-700 dark:text-slate-400">Feb 2023 – Present</span>
           </div>
@@ -635,6 +899,14 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-teal-500 to-green-500 text-white shadow-lg">Education</span>
       </h2>
       <div class="grid gap-6 md:grid-cols-2">
+        <div class="tilt md:col-span-2 p-5 rounded-2xl ring-1 ring-brand-200 dark:ring-brand-800 bg-gradient-to-br from-white to-brand-50/80 dark:from-slate-900/95 dark:to-brand-950/30 shadow-xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-300">Current studies</p>
+          <h3 class="mt-1 font-semibold gradient-text">Doctoral Studies — University of West Bohemia</h3>
+          <p class="text-sm text-slate-700 dark:text-slate-400">Faculty of Electrical Engineering, Pilsen, Czech Republic — 2026 – Present</p>
+          <ul class="mt-2 list-disc pl-5 text-slate-800 dark:text-slate-300">
+            <li>Research focus: AI-assisted optimization of machine design with fewer numerical simulations.</li>
+          </ul>
+        </div>
         <div class="tilt p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
           <h3 class="font-semibold gradient-text-4">MSc, Electrical &amp; Computer Engineering</h3>
           <p class="text-sm text-slate-700 dark:text-slate-400">Nazarbayev University, Astana — Aug 2021 – Jun 2023</p>
@@ -773,14 +1045,15 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
       <h2 class="text-2xl font-semibold tracking-tight mb-6">
         <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white shadow-lg">Gallery</span>
       </h2>
+      <p class="-mt-3 mb-6 text-sm text-slate-700 dark:text-slate-400">Research presentations, academic life, and moments beyond the lab.</p>
       <!-- Replace src paths with your images in /gallery/... -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_1.jpg" alt="" loading="lazy">
-        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_2.png" alt=" " loading="lazy">
-        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_3.jpg" alt="" loading="lazy">
-        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_4.jpg" alt="" loading="lazy">
-        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_5.jpg" alt="" loading="lazy">
-         <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_7.png" alt="" loading="lazy">
+        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_1.jpg" alt="Kashif Khan at a mountain viewpoint overlooking a lake" loading="lazy">
+        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_2.png" alt="Portrait of Kashif Khan by a window" loading="lazy">
+        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_3.jpg" alt="Kashif Khan beside a lake during spring" loading="lazy">
+        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_4.jpg" alt="Kashif Khan at Nazarbayev University" loading="lazy">
+        <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_5.jpg" alt="Kashif Khan outdoors in autumn" loading="lazy">
+         <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_7.png" alt="Kashif Khan working at a machine-learning research desk" loading="lazy">
         <img class="gallery-img aspect-[4/3] object-cover rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 cursor-zoom-in hover:opacity-90" src="/gallery/Kashif_6.jpg" alt="Presenting poster at a research conference" loading="lazy">
       </div>
     </div>
@@ -799,7 +1072,7 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
         <h2 class="text-2xl font-semibold tracking-tight">
           <span class="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-slate-500 to-gray-500 text-white shadow-lg">Contact</span>
         </h2>
-        <p class="text-sm text-slate-700 dark:text-slate-400 mt-1">I am actively looking for a PhD position focused on the application of ML.</p>
+        <p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Open to research collaboration in machine learning, optimization, RF systems, prognostics, and AI-assisted engineering design.</p>
       </div>
       <div class="md:col-span-2">
         <div class="p-5 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/95 dark:bg-slate-900/70 shadow-xl">
@@ -828,7 +1101,7 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
             <p id="formStatus" class="text-sm text-emerald-600 dark:text-emerald-400 hidden">Thanks! I’ll reply soon.</p>
           </form>
 
-          <p class="text-slate-800 dark:text-slate-300">Email: <a href="mailto:kashif.khan@nu.edu.kz" class="gradient-text hover:underline">kashif.khan@nu.edu.kz</a></p>
+          <p class="mt-6 text-slate-800 dark:text-slate-300">Email: <a href="mailto:kashif.khan@nu.edu.kz" class="gradient-text hover:underline">kashif.khan@nu.edu.kz</a></p>
           <p class="text-slate-800 dark:text-slate-300">Scholar: <a href="https://scholar.google.com/citations?user=e0CeRSUAAAAJ" target="_blank" rel="noopener noreferrer" class="gradient-text hover:underline">Google Scholar</a></p>
           <p class="text-slate-800 dark:text-slate-300">LinkedIn: <a href="https://www.linkedin.com/in/kashifkhan8145" target="_blank" rel="noopener noreferrer" class="gradient-text hover:underline">kashifkhan8145</a></p>
           <p class="text-slate-800 dark:text-slate-300">GitHub: <a href="https://github.com/kashifkhan8145" target="_blank" rel="noopener noreferrer" class="gradient-text hover:underline">kashifkhan8145</a></p>
@@ -841,7 +1114,7 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
   <!-- Footer -->
   <footer class="py-10 border-t border-slate-200/60 dark:border-slate-800 bg-gradient-to-r from-white/60 to-slate-50/60 dark:from-slate-900/40 dark:to-slate-900/40">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-400">
-      <p>  Kashif Khan - <span id="year"></span></p>
+      <p>Kashif Khan · Junior Researcher &amp; PhD Student · <span id="year"></span></p>
       <div class="flex items-center gap-4">
         <p class="hover:text-brand-600">Feel free to use the source code of this site:<a href="https://github.com/kashifkhan8145/kashifkhan8145.github.io" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600"> Source</a></p>
       </div>
@@ -879,8 +1152,13 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
     const menuBtn = document.getElementById('menuBtn');
     const mobileNav = document.getElementById('mobileNav');
     if (menuBtn && mobileNav) {
-      menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
-      mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
+      const setMenuOpen = (open) => {
+        mobileNav.classList.toggle('hidden', !open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      menuBtn.addEventListener('click', () => setMenuOpen(mobileNav.classList.contains('hidden')));
+      mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
     }
 
     // Dark mode toggle (persistent)
@@ -903,10 +1181,29 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
 
     // Reveal on scroll
     const rev = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
-    },{threshold:0.15});
-    rev.forEach(el=>io.observe(el));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
+      },{threshold:0.1, rootMargin:'0px 0px -6% 0px'});
+      rev.forEach(el=>io.observe(el));
+    } else {
+      rev.forEach(el=>el.classList.add('show'));
+    }
+
+    // Highlight the section currently in view
+    const navLinks = Array.from(document.querySelectorAll('#siteHeader nav a[href^="#"]'));
+    const navById = new Map(navLinks.map(link => [link.getAttribute('href').slice(1), link]));
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting && navById.has(entry.target.id))
+          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        navLinks.forEach(link => link.classList.remove('is-active'));
+        navById.get(visible.target.id)?.classList.add('is-active');
+      }, {rootMargin:'-32% 0px -58% 0px', threshold:[0,.2,.5]});
+      document.querySelectorAll('section[id]').forEach(section => sectionObserver.observe(section));
+    }
 
     // Publications filter
     const filter = document.getElementById('pubFilter');
@@ -928,21 +1225,45 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const precisePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // Mouse-aware card depth
+    if (!reducedMotion && precisePointer) {
+      document.querySelectorAll('.tilt').forEach(card => {
+        card.addEventListener('mousemove', (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width;
+          const y = (event.clientY - rect.top) / rect.height;
+          const rotateX = (.5 - y) * 2.4;
+          const rotateY = (x - .5) * 3;
+          card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-3px)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+        });
+      });
+    }
+
     // Parallax on hero elements
     const hero = document.getElementById('home');
     const portrait = document.getElementById('portrait');
     const headline = document.getElementById('headline');
-    hero.addEventListener('mousemove', (e)=>{
-      const r = hero.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      portrait.style.transform = `translate3d(${x*8}px, ${y*8}px, 0)`;
-      headline.style.transform = `translate3d(${x*4}px, ${y*4}px, 0)`;
-    });
-    hero.addEventListener('mouseleave', ()=>{
-      portrait.style.transform = 'translate3d(0,0,0)';
-      headline.style.transform = 'translate3d(0,0,0)';
-    });
+    if (hero && portrait && headline && !reducedMotion && precisePointer) {
+      hero.addEventListener('mousemove', (event)=>{
+        const rect = hero.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        hero.style.setProperty('--pointer-x', (x * 100).toFixed(1) + '%');
+        hero.style.setProperty('--pointer-y', (y * 100).toFixed(1) + '%');
+        portrait.style.transform = 'translate3d(' + ((x-.5)*9).toFixed(1) + 'px,' + ((y-.5)*9).toFixed(1) + 'px,0)';
+        headline.style.transform = 'translate3d(' + ((x-.5)*4).toFixed(1) + 'px,' + ((y-.5)*4).toFixed(1) + 'px,0)';
+      });
+      hero.addEventListener('mouseleave', ()=>{
+        portrait.style.transform = 'translate3d(0,0,0)';
+        headline.style.transform = 'translate3d(0,0,0)';
+      });
+    }
 
     // Lightbox
     const imgs = document.querySelectorAll('.gallery-img');
@@ -984,14 +1305,13 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
     const canvas = document.getElementById('starsTop');
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
-    let W=0, H=0, stars=[], pointer={x:null,y:null}, dark = document.documentElement.classList.contains('dark');
+    let W=0, H=0, stars=[], pointer={x:null,y:null};
 
-    const cfg = { density: 0.00022, maxSpeed: 0.12, linkDist: 120, linkAlpha: 0.25, sizeMin: 0.6, sizeMax: 1.8 };
+    const cfg = { density: 0.00018, maxSpeed: 0.1, linkDist: 118, linkAlpha: 0.18, sizeMin: 0.6, sizeMax: 1.7 };
 
     function targetHeight(){
-      const header = document.getElementById('siteHeader');
       const hero = document.getElementById('home');
-      return (header?.offsetHeight || 0) + (hero?.offsetHeight || 0);
+      return hero?.offsetHeight || 0;
     }
     function resize() {
       const h = targetHeight();
@@ -1015,8 +1335,8 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
     }
     function step() {
       ctx.clearRect(0,0,W,H);
-      const starLight = dark ? 'rgba(255,255,255,0.9)' : 'rgba(30,41,59,0.9)';
-      const lineRGB   = dark ? [255,255,255] : [139,92,246];
+      const starLight = 'rgba(255,255,255,0.9)';
+      const lineRGB = [34,211,238];
 
       for (const s of stars) {
         s.x += s.vx; s.y += s.vy;
@@ -1061,8 +1381,6 @@ ablations, reporting); co-authored IEEE publications and contributed to multi-in
     window.addEventListener('touchmove', setPointer, {passive:true});
     window.addEventListener('touchend', ()=>{ pointer.x=null; pointer.y=null; });
 
-    const mo = new MutationObserver(()=>{ dark = document.documentElement.classList.contains('dark'); });
-    mo.observe(document.documentElement, {attributes:true, attributeFilter:['class']});
     window.addEventListener('resize', resize);
     resize(); requestAnimationFrame(step);
   })();
